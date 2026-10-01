@@ -101,7 +101,9 @@ tr:last-child td{border-bottom:none}
 .checkpoint{display:flex;gap:14px;align-items:flex-start;border:1px solid color-mix(in srgb,var(--ok) 45%,var(--line));
   background:color-mix(in srgb,var(--ok) 8%,var(--panel));border-radius:14px;padding:14px 16px;margin:18px 0}
 .checkpoint .badge{flex:none;background:var(--ok);color:#04220f;font-weight:800;border-radius:10px;padding:6px 10px;font-size:.8rem}
+.checkpoint>div{flex:1;min-width:0}
 .checkpoint p{margin:0}
+.checkpoint .code{margin:10px 0}
 .checkpoint label{display:inline-flex;gap:8px;align-items:center;margin-top:8px;font-weight:600;font-size:.9rem;cursor:pointer}
 .checkpoint input{accent-color:var(--ok);width:18px;height:18px}
 .checkpoint code{background:rgba(0,0,0,.18)}
@@ -193,7 +195,7 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
     <div class="meta-row">
       <div class="meta-card"><b>13</b><small>Phases (0–12)</small></div>
       <div class="meta-card"><b>8</b><small>Push checkpoints</small></div>
-      <div class="meta-card"><b>~6 hrs</b><small>Over one weekend</small></div>
+      <div class="meta-card"><b>~7 hrs</b><small>Over one weekend</small></div>
       <div class="meta-card"><b>25</b><small>Marks</small></div>
     </div>
   </div>
@@ -222,7 +224,7 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
       <a href="#overview">Overview</a>
       <a href="#rules">Completion rules</a>
       <div class="grp">Setup</div>
-      <a href="#p0">0 · Accounts & repo</a>
+      <a href="#p0">0 · Git, VS Code & repo</a>
       <a href="#p1">1 · Supabase project</a>
       <div class="grp">Database</div>
       <a href="#p2">2 · Database design</a>
@@ -275,7 +277,7 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
   </ul>
   <h3>Timeline</h3>
   <div class="timeline">
-    <div class="tl"><h4>Saturday</h4><small>Phases 0–6 · ~2.5 hrs</small><p>Accounts, repo, database, security, queries</p></div>
+    <div class="tl"><h4>Saturday</h4><small>Phases 0–6 · ~3.5 hrs</small><p>Git and VS Code setup, repo, database, security, queries</p></div>
     <div class="tl"><h4>Sunday morning</h4><small>Phases 7–11 · ~2 hrs</small><p>Frontend, testing, GitHub Pages, README</p></div>
     <div class="tl"><h4>Sunday evening</h4><small>Phase 12 · ~1.5 hrs</small><p>Personalisation and final submission</p></div>
   </div>
@@ -289,7 +291,7 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
   <ul>
     <li>Every student has their <b>own</b> Supabase project and their <b>own</b> public GitHub repo named <code>cinesuper-&lt;regno&gt;</code>.</li>
     <li>Every <b>Push checkpoint</b> in this guide must appear as a separate commit in your repo history (8 in total).</li>
-    <li>“Push” here means <b>committing through the GitHub website</b> (Add file → Create new file / Upload files → Commit changes). You do not need to install Git.</li>
+    <li>“Push” means saving a commit with Git and sending it to GitHub from the <b>VS Code terminal</b>. Phase 0 shows how to install Git and VS Code and gives the <a href="#push-routine">push routine</a> you repeat at every checkpoint.</li>
     <li>The live link must load movies from <b>your</b> Supabase project on the evaluation day.</li>
     <li>The site footer must show your name, register number and Jain School of Future Technology.</li>
     <li>Copied repos (same data, same history, no personalisation) get zero.</li>
@@ -298,29 +300,85 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
 </section>
 
 <section class="block" id="p0">
-  <span class="phase-tag">Phase 0</span>
-  <h2>Accounts and your GitHub repo</h2>
-  <p class="intro">You create the repo on day one so every later phase is recorded as a commit.</p>
+  <span class="phase-tag">Phase 0 · Setup</span>
+  <h2>Accounts, Git, VS Code and your repo</h2>
+  <p class="intro">You set up your tools and your repo first, so every later phase is saved as a commit and pushed to GitHub from the VS Code terminal. Do this once; it takes about 45 minutes.</p>
+
   <h3>Step 0.1 — GitHub account</h3>
   <ol class="steps">
     <li>Go to <a href="https://github.com" target="_blank" rel="noopener">github.com</a> and click <b>Sign up</b>.</li>
     <li>Use your college email and a professional username, for example <code>ravi-cse24</code>.</li>
     <li>Verify your email.</li>
   </ol>
+
   <h3>Step 0.2 — Supabase account</h3>
   <ol class="steps">
     <li>Go to <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a> and click <b>Start your project</b>.</li>
     <li>Choose <b>Continue with GitHub</b> and authorise it.</li>
   </ol>
-  <h3>Step 0.3 — Create your repository</h3>
+
+  <h3>Step 0.3 — Install VS Code</h3>
+  <ol class="steps">
+    <li>Go to <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a> and download the installer for your computer.</li>
+    <li><b>Windows:</b> run the installer and accept the defaults. On the <b>Select Additional Tasks</b> screen tick <b>Add "Open with Code" action</b> and <b>Add to PATH</b>.<br>
+        <b>Mac:</b> open the downloaded zip and drag <b>Visual Studio Code</b> into <b>Applications</b>.</li>
+    <li>Open VS Code. Click the <b>Extensions</b> icon on the left (four squares), search <b>Live Server</b> (by Ritwick Dey) and click <b>Install</b>. You will use it in Phase 9.</li>
+  </ol>
+
+  <h3>Step 0.4 — Install Git</h3>
+  <div class="grid2">
+    <div class="card"><div class="num">WINDOWS</div><h4>Git for Windows</h4>
+      <p>Download from <a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener">git-scm.com/downloads/win</a> (64-bit installer) and run it. Click <b>Next</b> on every screen, except:<br>
+      • <b>Default editor</b>: choose <b>Use Visual Studio Code as Git's default editor</b><br>
+      • <b>Initial branch name</b>: choose <b>Override</b> and type <code>main</code></p></div>
+    <div class="card"><div class="num">MAC</div><h4>Command Line Tools</h4>
+      <p>Open the <b>Terminal</b> app, type <code>git --version</code> and press Enter. If Git is missing, a window asks to install the <b>Command Line Tools</b>: click <b>Install</b> and wait. Run <code>git --version</code> again.</p></div>
+  </div>
+  <div class="callout warn"><b class="t">Restart VS Code after installing Git</b>Close every VS Code window and open it again, otherwise its terminal will not find Git.</div>
+
+  <h3>Step 0.5 — Open the VS Code terminal and tell Git who you are</h3>
+  <ol class="steps">
+    <li>In VS Code, open the menu <b>Terminal → New Terminal</b> (shortcut <code>Ctrl + `</code>, the key below Esc). A terminal opens at the bottom.</li>
+    <li>Check Git works. You should see a version number such as <code>git version 2.47.0</code>.
+      <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git --version</code></pre></div></li>
+    <li>Set your name and the <b>same email you used for GitHub</b>. Type each line, change the values, press Enter. Nothing is printed when it works.
+      <div class="code"><div class="code-head"><span class="fname">Terminal (run once)</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git config --global user.name "Your Full Name"
+git config --global user.email "your-github-email@example.com"
+git config --global init.defaultBranch main</code></pre></div></li>
+    <li>Sign in to GitHub inside VS Code: click the <b>Accounts</b> icon (person, bottom-left) → <b>Sign in with GitHub</b> → allow it in the browser. VS Code will then handle your <code>git push</code> logins.</li>
+  </ol>
+
+  <h3>Step 0.6 — Create your repository on GitHub</h3>
   <ol class="steps">
     <li>On GitHub click <b>+</b> (top right) → <b>New repository</b>.</li>
     <li>Name: <code>cinesuper-&lt;your-reg-no&gt;</code>, for example <code>cinesuper-24cs045</code>. All lowercase.</li>
     <li>Visibility: <b>Public</b> (GitHub Pages is free only for public repos).</li>
     <li>Tick <b>Add a README file</b>, then click <b>Create repository</b>.</li>
+    <li>On the repo page click the green <b>&lt;&gt; Code</b> button → <b>HTTPS</b> tab → copy the URL. It looks like <code>https://github.com/ravi-cse24/cinesuper-24cs045.git</code></li>
   </ol>
-  <h3>Step 0.4 — The structure you will build</h3>
-  <p>In the repo, <b>Add file → Create new file</b> lets you create files. Typing a <code>/</code> in the file name creates a folder.</p>
+
+  <h3>Step 0.7 — Clone the repo to your laptop</h3>
+  <p>“Clone” downloads your GitHub repo into a folder on your laptop that stays connected to GitHub.</p>
+  <ol class="steps">
+    <li>In the VS Code terminal, go to your Documents folder and clone. Paste <b>your</b> URL from Step 0.6 (right-click in the terminal to paste).
+      <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">cd ~/Documents
+git clone https://github.com/YOUR-USERNAME/cinesuper-YOUR-REGNO.git</code></pre></div>
+      You should see <code>Cloning into 'cinesuper-…'… done.</code></li>
+    <li>Open the folder in VS Code: <b>File → Open Folder…</b> → <b>Documents</b> → <b>cinesuper-&lt;regno&gt;</b> → <b>Select Folder</b> / <b>Open</b>. If asked “Do you trust the authors?”, click <b>Yes, I trust the authors</b>.</li>
+    <li>Open a fresh terminal (<b>Terminal → New Terminal</b>). It now starts inside your repo. Check it:
+      <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git status</code></pre></div>
+      It should say <code>On branch main</code> and <code>Your branch is up to date with 'origin/main'</code>.</li>
+  </ol>
+  <div class="callout danger"><b class="t">Always work inside this folder</b>Every file in this project goes inside <code>cinesuper-&lt;regno&gt;</code>. Every Git command is run from a terminal opened in this folder. If Git says <code>not a git repository</code>, you are in the wrong folder.</div>
+
+  <h3>Step 0.8 — How to create files and folders in VS Code</h3>
+  <ol class="steps">
+    <li>In the <b>Explorer</b> panel (left, top icon) hover over your folder name and click the <b>New File</b> icon (page with +).</li>
+    <li>Type the file name and press Enter. Typing a <code>/</code> creates a folder too: <code>database/01_tables.sql</code> creates the <code>database</code> folder and the file inside it.</li>
+    <li>Paste the content and press <code>Ctrl + S</code> (Mac: <code>Cmd + S</code>) to save. An unsaved file shows a <b>●</b> on its tab, and Git cannot see unsaved changes.</li>
+    <li>To add screenshots, save or drag the image files into the <code>screenshots</code> folder in the Explorer.</li>
+  </ol>
+  <p>By the end of the project your folder will look like this:</p>
   <div class="code"><div class="code-head"><span class="fname">Repository structure</span><button class="copy" type="button">Copy</button></div><pre><code class="language-plaintext">cinesuper-&lt;regno&gt;/
 ├── README.md
 ├── index.html
@@ -335,9 +393,29 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
 │   ├── 05_queries.sql
 │   └── 06_personalisation.sql
 └── screenshots/</code></pre></div>
+
+  <h3 id="push-routine">Step 0.9 — The push routine (use it at every checkpoint)</h3>
+  <p>Every <b>PUSH</b> box in this guide means: save your files, then run these three commands in the VS Code terminal, changing only the message.</p>
+  <div class="code"><div class="code-head"><span class="fname">Terminal · push routine</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase X: message from the PUSH box"
+git push</code></pre></div>
+  <div class="tablewrap"><table>
+    <tr><th>Command</th><th>What it does</th></tr>
+    <tr><td><code>git status</code></td><td>Shows changed and new files (red = not added yet, green = added)</td></tr>
+    <tr><td><code>git add .</code></td><td>Puts all changed files in this folder into the next commit (the dot means “everything here”)</td></tr>
+    <tr><td><code>git commit -m "…"</code></td><td>Saves a snapshot on your laptop with a message</td></tr>
+    <tr><td><code>git push</code></td><td>Sends your commits to GitHub</td></tr>
+    <tr><td><code>git log --oneline</code></td><td>Lists your commits (press <code>q</code> to exit)</td></tr>
+  </table></div>
+  <div class="callout"><b class="t">First push</b>The first time you run <code>git push</code>, VS Code or Git asks you to sign in to GitHub in the browser. Click <b>Allow</b> / <b>Authorize</b>. After that it remembers you.</div>
+
   <div class="checkpoint">
     <span class="badge">PUSH 1</span>
-    <div><p>Create an empty file <code>screenshots/.gitkeep</code>. Commit message: <code>Phase 0: repo setup</code></p>
+    <div><p>In VS Code create the empty file <code>screenshots/.gitkeep</code> (Git does not save empty folders, so this keeps the folder) and save it. Then run:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 0: repo setup"
+git push</code></pre></div>
+    <p>Refresh your repo on GitHub: you should see the <code>screenshots</code> folder.</p>
     <label><input type="checkbox" data-cp="1"> I pushed this commit</label></div>
   </div>
 </section>
@@ -449,7 +527,10 @@ create table reviews (
   </table></div>
   <div class="checkpoint">
     <span class="badge">PUSH 2</span>
-    <div><p>In GitHub, <b>Add file → Create new file</b> → <code>database/01_tables.sql</code>, paste Script 1. Commit: <code>Phase 3: create tables</code></p>
+    <div><p>In VS Code create <code>database/01_tables.sql</code>, paste Script 1 and save. Then run the <a href="#push-routine">push routine</a>:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 3: create tables"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="2"> I pushed this commit</label></div>
   </div>
 </section>
@@ -533,7 +614,10 @@ insert into reviews (movie_id, reviewer_name, rating, comment) values
   <div class="callout"><b class="t">Notice the subquery</b><code>(select id from genres where name = 'Action')</code> looks up IDs by name instead of hard-coding them.</div>
   <div class="checkpoint">
     <span class="badge">PUSH 3</span>
-    <div><p>Create <code>database/02_seed.sql</code> with Script 2. Commit: <code>Phase 4: sample data</code></p>
+    <div><p>Create <code>database/02_seed.sql</code> with Script 2 and save. Then push:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 4: sample data"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="3"> I pushed this commit</label></div>
   </div>
 </section>
@@ -572,7 +656,10 @@ grant insert on reviews to anon, authenticated;</code></pre></div>
   <div class="callout danger"><b class="t">Never disable RLS</b>If data does not show on the site, a policy or grant is missing. Re-run Script 3 instead of turning security off.</div>
   <div class="checkpoint">
     <span class="badge">PUSH 4</span>
-    <div><p>Create <code>database/03_security.sql</code> with Script 3 and upload a screenshot of the policies page to <code>screenshots/</code>. Commit: <code>Phase 5: RLS policies</code></p>
+    <div><p>Create <code>database/03_security.sql</code> with Script 3, save it, and put a screenshot of the policies page in <code>screenshots/</code>. Then push:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 5: RLS policies"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="4"> I pushed this commit</label></div>
   </div>
 </section>
@@ -642,7 +729,10 @@ where title = &#x27;Interstellar&#x27;;</code></pre></div>
   </ol>
   <div class="checkpoint">
     <span class="badge">PUSH 5</span>
-    <div><p>Create <code>database/04_view.sql</code> (Script 4) and <code>database/05_queries.sql</code> (Q1–Q8 + your Part B). Upload all query screenshots. Commit: <code>Phase 6: view and queries</code></p>
+    <div><p>Create <code>database/04_view.sql</code> (Script 4) and <code>database/05_queries.sql</code> (Q1–Q8 + your Part B), and put all query screenshots in <code>screenshots/</code>. Then push:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 6: view and queries"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="5"> I pushed this commit</label></div>
   </div>
 </section>
@@ -662,7 +752,7 @@ where title = &#x27;Interstellar&#x27;;</code></pre></div>
 <section class="block" id="p8">
   <span class="phase-tag">Phase 8</span>
   <h2>Build the frontend</h2>
-  <p class="intro">Create a folder named <code>cinesuper</code> on your laptop, open it in VS Code (<b>File → Open Folder</b>) and create these four files. Names are case-sensitive.</p>
+  <p class="intro">In VS Code, with your <code>cinesuper-&lt;regno&gt;</code> repo folder open, create these four files at the <b>top level</b> of the folder (next to <code>README.md</code>). Names are case-sensitive.</p>
   <h3>Step 8.1 — config.js (your own keys)</h3>
   <div class="code"><div class="code-head"><span class="fname">config.js</span><button class="copy" type="button">Copy</button></div><pre><code class="language-javascript">// Replace both values with YOUR Supabase details from Phase 7
 const SUPABASE_URL = &quot;https://YOUR-PROJECT-ID.supabase.co&quot;;
@@ -1012,7 +1102,10 @@ init();</code></pre></div>
   <div class="callout"><b class="t">Something broken?</b>Press <b>F12 → Console</b>, read the red error and check <a href="#trouble">Troubleshooting</a>.</div>
   <div class="checkpoint">
     <span class="badge">PUSH 6</span>
-    <div><p>In your repo, <b>Add file → Upload files</b>, drag in <code>index.html</code>, <code>style.css</code>, <code>config.js</code>, <code>app.js</code> (the files, not the folder). Commit: <code>Phase 8: frontend</code></p>
+    <div><p>Check that <code>index.html</code>, <code>style.css</code>, <code>config.js</code> and <code>app.js</code> are at the top level of your repo folder (next to <code>README.md</code>, not inside <code>database/</code>). Then push:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 8: frontend"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="6"> I pushed this commit</label></div>
   </div>
 </section>
@@ -1033,7 +1126,7 @@ init();</code></pre></div>
 <section class="block" id="p11">
   <span class="phase-tag">Phase 11</span>
   <h2>README with your live link</h2>
-  <p class="intro">Open <code>README.md</code> in the repo, click the pencil icon, replace everything with this and fill in your details.</p>
+  <p class="intro">Open <code>README.md</code> in VS Code, replace everything with this, fill in your details and save.</p>
   <div class="code"><div class="code-head"><span class="fname">README.md</span><button class="copy" type="button">Copy</button></div><pre><code class="language-markdown"># 🎬 CineSuper — Mini OTT Movie Database
 
 **Live Demo:** https://YOUR-USERNAME.github.io/cinesuper-YOUR-REGNO/
@@ -1066,7 +1159,10 @@ init();</code></pre></div>
 - Extra feature: …</code></pre></div>
   <div class="checkpoint">
     <span class="badge">PUSH 7</span>
-    <div><p>Commit: <code>Phase 11: README and live link</code></p>
+    <div><p>Save <code>README.md</code>, then push:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 11: README and live link"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="7"> I pushed this commit</label></div>
   </div>
 </section>
@@ -1109,7 +1205,10 @@ where title in (&#x27;Memento&#x27;, &#x27;The Dark Knight&#x27;, &#x27;Inceptio
   <div class="callout warn"><b class="t">Auth option</b>To allow only logged-in users to review, drop the <code>"Public can add reviews"</code> policy and recreate it with <code>to authenticated</code> instead of <code>to anon, authenticated</code>.</div>
   <div class="checkpoint">
     <span class="badge">PUSH 8</span>
-    <div><p>Create <code>database/06_personalisation.sql</code> with your INSERT, ALTER and UPDATE statements, upload the changed frontend files and screenshots of the new features, and fill the README's My Personalisation section. Commit: <code>Phase 12: personalisation</code></p>
+    <div><p>Create <code>database/06_personalisation.sql</code> with your INSERT, ALTER and UPDATE statements, save your changed frontend files, add screenshots of the new features, and fill the README's My Personalisation section. Then push:</p>
+    <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
+git commit -m "Phase 12: personalisation"
+git push</code></pre></div>
     <label><input type="checkbox" data-cp="8"> I pushed this commit</label></div>
   </div>
 </section>
@@ -1196,6 +1295,20 @@ where title in (&#x27;Memento&#x27;, &#x27;The Dark Knight&#x27;, &#x27;Inceptio
     <tr><td>GitHub Pages shows 404</td><td>index.html not at root, or too soon</td><td>Move files to the root; wait 2 to 3 minutes</td></tr>
     <tr><td>Site shows the old version</td><td>Browser cache</td><td>Ctrl + Shift + R</td></tr>
   </table></div>
+  <h3>Git and GitHub problems</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Message or problem</th><th>Likely cause</th><th>Fix</th></tr>
+    <tr><td><code>'git' is not recognized</code> / <code>command not found: git</code></td><td>Git not installed, or VS Code opened before installing it</td><td>Install Git (Step 0.4), close all VS Code windows and open again</td></tr>
+    <tr><td><code>Please tell me who you are</code></td><td>Name and email not set</td><td>Run the two <code>git config --global</code> lines from Step 0.5</td></tr>
+    <tr><td><code>fatal: not a git repository</code></td><td>Terminal is not in your repo folder</td><td><b>File → Open Folder</b> → your <code>cinesuper-&lt;regno&gt;</code> folder, then <b>Terminal → New Terminal</b></td></tr>
+    <tr><td><code>nothing to commit, working tree clean</code></td><td>Files not saved, or already committed</td><td>Save with <code>Ctrl + S</code> (no <b>●</b> on tabs) and check <code>git status</code>; if already committed, just <code>git push</code></td></tr>
+    <tr><td><code>Authentication failed</code> / <code>403</code> / <code>Permission denied</code></td><td>Not signed in, or pushing to someone else's repo</td><td>Sign in via the Accounts icon in VS Code (Step 0.5), push from the VS Code terminal, and check the repo is yours with <code>git remote -v</code></td></tr>
+    <tr><td><code>! [rejected] … (fetch first)</code></td><td>You changed something on the GitHub website</td><td>Run <code>git pull</code>, then <code>git push</code></td></tr>
+    <tr><td><code>LF will be replaced by CRLF</code></td><td>Windows line-ending notice</td><td>Harmless, ignore it</td></tr>
+    <tr><td>Wrong commit message</td><td>Typo in <code>-m "…"</code></td><td>Before pushing: <code>git commit --amend -m "Correct message"</code>. After pushing, leave it and ask faculty</td></tr>
+    <tr><td>A file is missing on GitHub</td><td>It is outside the repo folder or was not saved</td><td>Move it into <code>cinesuper-&lt;regno&gt;</code> in VS Code Explorer, save, run the push routine again</td></tr>
+  </table></div>
+
   <h3>Start over cleanly</h3>
   <p>If your data is duplicated or broken, run this in a new query. It deletes <b>all</b> CineSuper tables and data in your project. Then run Scripts 1, 2, 3 and 4 again, once each, in order.</p>
   <div class="code"><div class="code-head"><span class="fname">reset (do not save in repo)</span><button class="copy" type="button">Copy</button></div><pre><code class="language-sql">drop view  if exists movie_ratings;
