@@ -6,7 +6,7 @@
 <title>CineSuper Task Status</title>
 <meta name="description" content="Task completion status, live links and awarded marks for the CineSuper compulsory weekend task. Jain School of Future Technology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0b0b10; --panel:#13131b; --panel-2:#1a1a24; --line:#262633;
@@ -21,7 +21,7 @@
   --shadow:0 8px 24px rgba(20,20,40,.08);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,"Noto Sans Malayalam",system-ui,sans-serif}
 a{color:var(--accent-2)}
 
 .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:10px;padding:12px 20px;
@@ -129,6 +129,14 @@ footer strong{color:var(--text)}
   main{padding:20px 16px 48px}
 }
 @media (max-width:420px){ .brand .txt{display:none} }
+
+/* Malayalam translation (Google Translate) */
+body{top:0!important}
+iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+#gt{display:none}
+.langbtn{font-weight:600}
+@media (max-width:520px){ .lbl{display:none} }
 </style>
 </head>
 <body>
@@ -137,8 +145,9 @@ footer strong{color:var(--text)}
   <a class="brand" href="index.html"><span class="dot"></span><span class="txt">CineSuper Weekend Task</span></a>
   <span class="spacer"></span>
   <a class="iconbtn" href="index.html">📘 Guide</a>
-  <a class="iconbtn current" href="status.html" aria-current="page">📊 Task Status</a>
-  <button class="iconbtn" id="themeBtn" type="button">◐ Theme</button>
+  <a class="iconbtn current" href="status.html" aria-current="page">📊 <span class="lbl">Task </span>Status</a>
+  <button class="iconbtn langbtn" id="langBtn" type="button">🌐 മലയാളം</button>
+  <button class="iconbtn" id="themeBtn" type="button" aria-label="Toggle theme">◐<span class="lbl"> Theme</span></button>
 </div>
 
 <header class="hero">
@@ -190,6 +199,7 @@ footer strong{color:var(--text)}
   <div style="margin-top:6px">Prepared by <strong>Sathish Kumar M</strong></div>
 </footer>
 
+<div id="gt"></div>
 <script>
 (function () {
   // Theme (shared with the guide)
@@ -202,6 +212,29 @@ footer strong{color:var(--text)}
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("cs-theme", next); } catch (e) {}
   });
+
+
+  // Malayalam translation (Google Translate). Code, names and links stay in English.
+  const isMl = /(^|;\s*)googtrans=\/en\/ml/.test(document.cookie);
+  const langBtn = document.getElementById("langBtn");
+  langBtn.innerHTML = isMl ? "🌐 English" : "🌐 മലയാളം";
+  langBtn.title = isMl ? "Show the original English page" : "Translate this page to Malayalam (machine translation)";
+  langBtn.addEventListener("click", () => {
+    const gone = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie = gone;
+    document.cookie = gone + "; domain=" + location.hostname;
+    document.cookie = gone + "; domain=." + location.hostname;
+    if (!isMl) document.cookie = "googtrans=/en/ml; path=/";
+    location.reload();
+  });
+  document.querySelectorAll(".brand, .who, td.links-td, .markrow, .commits, #langBtn").forEach((e) => { e.classList.add("notranslate"); e.setAttribute("translate", "no"); });
+  if (isMl) {
+    window.googleTranslateElementInit = () =>
+      new google.translate.TranslateElement({ pageLanguage: "en", includedLanguages: "ml", autoDisplay: false }, "gt");
+    const gs = document.createElement("script");
+    gs.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    document.body.appendChild(gs);
+  }
 
   const STATUSES = {
     completed:  { label: "Completed",     cls: "s-completed",  order: 0 },

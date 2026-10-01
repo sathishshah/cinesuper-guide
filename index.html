@@ -6,7 +6,7 @@
 <title>CineSuper Weekend Task</title>
 <meta name="description" content="Compulsory weekend task: step-by-step guide to build and deploy CineSuper, a mini OTT movie database using Supabase and GitHub Pages. Jain School of Future Technology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <style>
 :root{
@@ -22,7 +22,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,"Noto Sans Malayalam",system-ui,sans-serif}
 a{color:var(--accent-2)}
 code{font-family:"JetBrains Mono",monospace}
 :not(pre)>code{background:var(--panel-2);border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:.86em}
@@ -157,6 +157,14 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
 @media (max-width:420px){
   .brand .txt{display:none}
 }
+
+/* Malayalam translation (Google Translate) */
+body{top:0!important}
+iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+#gt{display:none}
+.langbtn{font-weight:600}
+@media (max-width:520px){ .lbl{display:none} }
 </style>
 </head>
 <body>
@@ -166,8 +174,9 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
   <a class="brand" href="#top"><span class="dot"></span><span class="txt">CineSuper Weekend Task</span></a>
   <span class="spacer"></span>
   <span class="pill">Jain School of Future Technology</span>
-  <a class="iconbtn navlink" href="status.html">📊 Task Status</a>
-  <button class="iconbtn" id="themeBtn" type="button">◐ Theme</button>
+  <a class="iconbtn navlink" href="status.html">📊 <span class="lbl">Task </span>Status</a>
+  <button class="iconbtn langbtn" id="langBtn" type="button">🌐 മലയാളം</button>
+  <button class="iconbtn" id="themeBtn" type="button" aria-label="Toggle theme">◐<span class="lbl"> Theme</span></button>
 </div>
 
 <header class="hero" id="top">
@@ -357,8 +366,8 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
   <div class="tablewrap"><table>
     <tr><th>Table</th><th>Stores</th><th>Example row</th></tr>
     <tr><td><code>genres</code></td><td>Movie categories</td><td>Action</td></tr>
-    <tr><td><code>movies</code></td><td>Movie details</td><td>Vikram, 2022, Tamil, 174 min</td></tr>
-    <tr><td><code>reviews</code></td><td>Ratings and comments per movie</td><td>Arun gave Vikram 5 stars</td></tr>
+    <tr><td><code>movies</code></td><td>Movie details</td><td>Drishyam, 2013, Malayalam, 160 min</td></tr>
+    <tr><td><code>reviews</code></td><td>Ratings and comments per movie</td><td>Anjali gave Drishyam 5 stars</td></tr>
   </table></div>
   <h3>ER diagram</h3>
   <div class="mermaid-wrap"><pre class="mermaid">erDiagram
@@ -449,61 +458,78 @@ create table reviews (
   <span class="phase-tag">Phase 4 · DML</span>
   <h2>Insert sample data</h2>
   <p class="intro">Open a new query, paste Script 2 and run it <b>once</b>.</p>
-  <div class="code"><div class="code-head"><span class="fname">database/02_seed.sql</span><button class="copy" type="button">Copy</button></div><pre><code class="language-sql">-- SCRIPT 2: SAMPLE DATA
+  <div class="code"><div class="code-head"><span class="fname">database/02_seed.sql</span><button class="copy" type="button">Copy</button></div><pre><code class="language-sql">-- SCRIPT 2: SAMPLE DATA (Malayalam, Tamil and Christopher Nolan movies)
 
 insert into genres (name) values
-  (&#x27;Action&#x27;), (&#x27;Drama&#x27;), (&#x27;Comedy&#x27;), (&#x27;Sci-Fi&#x27;), (&#x27;Thriller&#x27;), (&#x27;Animation&#x27;);
+  (&#x27;Action&#x27;), (&#x27;Drama&#x27;), (&#x27;Comedy&#x27;), (&#x27;Sci-Fi&#x27;), (&#x27;Thriller&#x27;), (&#x27;Biography&#x27;);
 
 insert into movies (title, release_year, language, duration_min, description, poster_url, genre_id) values
-  (&#x27;Baahubali 2: The Conclusion&#x27;, 2017, &#x27;Telugu&#x27;, 167,
-   &#x27;A warrior learns the truth about his father and the kingdom of Mahishmati.&#x27;,
-   &#x27;https://placehold.co/300x450/7f1d1d/ffffff?text=Baahubali+2&#x27;,
+  -- Malayalam
+  (&#x27;Drishyam&#x27;, 2013, &#x27;Malayalam&#x27;, 160,
+   &#x27;A cable operator goes to any length to protect his family after an accidental crime.&#x27;,
+   &#x27;https://placehold.co/300x450/7f1d1d/ffffff?text=Drishyam&#x27;,
+   (select id from genres where name = &#x27;Thriller&#x27;)),
+  (&#x27;Premam&#x27;, 2015, &#x27;Malayalam&#x27;, 156,
+   &#x27;George falls in love three times, from school days to adulthood.&#x27;,
+   &#x27;https://placehold.co/300x450/831843/ffffff?text=Premam&#x27;,
+   (select id from genres where name = &#x27;Drama&#x27;)),
+  (&#x27;Bangalore Days&#x27;, 2014, &#x27;Malayalam&#x27;, 171,
+   &#x27;Three cousins from Kerala chase their dreams in Bangalore.&#x27;,
+   &#x27;https://placehold.co/300x450/065f46/ffffff?text=Bangalore+Days&#x27;,
+   (select id from genres where name = &#x27;Comedy&#x27;)),
+  (&#x27;Minnal Murali&#x27;, 2021, &#x27;Malayalam&#x27;, 158,
+   &#x27;A village tailor gets superpowers after being struck by lightning.&#x27;,
+   &#x27;https://placehold.co/300x450/1e3a8a/ffffff?text=Minnal+Murali&#x27;,
    (select id from genres where name = &#x27;Action&#x27;)),
+  (&#x27;Manjummel Boys&#x27;, 2024, &#x27;Malayalam&#x27;, 135,
+   &#x27;Friends from Kochi race to rescue one of them trapped in the Guna Caves.&#x27;,
+   &#x27;https://placehold.co/300x450/422006/ffffff?text=Manjummel+Boys&#x27;,
+   (select id from genres where name = &#x27;Thriller&#x27;)),
+  -- Tamil
   (&#x27;Vikram&#x27;, 2022, &#x27;Tamil&#x27;, 174,
    &#x27;A special agent investigates masked murders linked to a drug cartel.&#x27;,
    &#x27;https://placehold.co/300x450/111827/ffffff?text=Vikram&#x27;,
    (select id from genres where name = &#x27;Action&#x27;)),
-  (&#x27;Jai Bhim&#x27;, 2021, &#x27;Tamil&#x27;, 164,
-   &#x27;A lawyer fights for justice for a tribal woman whose husband goes missing in custody.&#x27;,
-   &#x27;https://placehold.co/300x450/1e3a8a/ffffff?text=Jai+Bhim&#x27;,
-   (select id from genres where name = &#x27;Drama&#x27;)),
   (&#x27;96&#x27;, 2018, &#x27;Tamil&#x27;, 158,
    &#x27;Two school sweethearts meet again at a reunion, twenty-two years later.&#x27;,
-   &#x27;https://placehold.co/300x450/831843/ffffff?text=96&#x27;,
+   &#x27;https://placehold.co/300x450/9d174d/ffffff?text=96&#x27;,
    (select id from genres where name = &#x27;Drama&#x27;)),
-  (&#x27;3 Idiots&#x27;, 2009, &#x27;Hindi&#x27;, 171,
-   &#x27;Two friends search for the college buddy who taught them to chase excellence.&#x27;,
-   &#x27;https://placehold.co/300x450/065f46/ffffff?text=3+Idiots&#x27;,
-   (select id from genres where name = &#x27;Comedy&#x27;)),
+  (&#x27;Jai Bhim&#x27;, 2021, &#x27;Tamil&#x27;, 164,
+   &#x27;A lawyer fights for justice for a tribal woman whose husband goes missing in custody.&#x27;,
+   &#x27;https://placehold.co/300x450/1e40af/ffffff?text=Jai+Bhim&#x27;,
+   (select id from genres where name = &#x27;Drama&#x27;)),
+  -- Christopher Nolan
+  (&#x27;Memento&#x27;, 2000, &#x27;English&#x27;, 113,
+   &#x27;A man with short-term memory loss hunts his wife&#x27;&#x27;s killer using notes and tattoos.&#x27;,
+   &#x27;https://placehold.co/300x450/374151/ffffff?text=Memento&#x27;,
+   (select id from genres where name = &#x27;Thriller&#x27;)),
+  (&#x27;The Dark Knight&#x27;, 2008, &#x27;English&#x27;, 152,
+   &#x27;Batman faces the Joker, a criminal who wants to plunge Gotham into chaos.&#x27;,
+   &#x27;https://placehold.co/300x450/0f172a/ffffff?text=The+Dark+Knight&#x27;,
+   (select id from genres where name = &#x27;Action&#x27;)),
+  (&#x27;Inception&#x27;, 2010, &#x27;English&#x27;, 148,
+   &#x27;A thief who steals secrets through dreams is asked to plant an idea instead.&#x27;,
+   &#x27;https://placehold.co/300x450/334155/ffffff?text=Inception&#x27;,
+   (select id from genres where name = &#x27;Sci-Fi&#x27;)),
   (&#x27;Interstellar&#x27;, 2014, &#x27;English&#x27;, 169,
    &#x27;Astronauts travel through a wormhole to find a new home for humanity.&#x27;,
    &#x27;https://placehold.co/300x450/0c4a6e/ffffff?text=Interstellar&#x27;,
    (select id from genres where name = &#x27;Sci-Fi&#x27;)),
-  (&#x27;Inception&#x27;, 2010, &#x27;English&#x27;, 148,
-   &#x27;A thief who steals secrets through dreams is asked to plant an idea instead.&#x27;,
-   &#x27;https://placehold.co/300x450/374151/ffffff?text=Inception&#x27;,
-   (select id from genres where name = &#x27;Sci-Fi&#x27;)),
-  (&#x27;Drishyam&#x27;, 2013, &#x27;Malayalam&#x27;, 160,
-   &#x27;A family man goes to any length to protect his family after an accidental crime.&#x27;,
-   &#x27;https://placehold.co/300x450/422006/ffffff?text=Drishyam&#x27;,
-   (select id from genres where name = &#x27;Thriller&#x27;)),
-  (&#x27;Kantara&#x27;, 2022, &#x27;Kannada&#x27;, 148,
-   &#x27;A village conflict between tradition and authority, rooted in local folklore.&#x27;,
-   &#x27;https://placehold.co/300x450/7c2d12/ffffff?text=Kantara&#x27;,
-   (select id from genres where name = &#x27;Thriller&#x27;)),
-  (&#x27;Toy Story&#x27;, 1995, &#x27;English&#x27;, 81,
-   &#x27;A cowboy doll feels threatened when a new space-ranger toy arrives.&#x27;,
-   &#x27;https://placehold.co/300x450/1d4ed8/ffffff?text=Toy+Story&#x27;,
-   (select id from genres where name = &#x27;Animation&#x27;));
+  (&#x27;Oppenheimer&#x27;, 2023, &#x27;English&#x27;, 180,
+   &#x27;The story of J. Robert Oppenheimer and the creation of the atomic bomb.&#x27;,
+   &#x27;https://placehold.co/300x450/7c2d12/ffffff?text=Oppenheimer&#x27;,
+   (select id from genres where name = &#x27;Biography&#x27;));
 
 insert into reviews (movie_id, reviewer_name, rating, comment) values
-  ((select id from movies where title = &#x27;Vikram&#x27;),       &#x27;Arun&#x27;,    5, &#x27;Mass climax!&#x27;),
-  ((select id from movies where title = &#x27;Vikram&#x27;),       &#x27;Divya&#x27;,   4, &#x27;Great background score.&#x27;),
-  ((select id from movies where title = &#x27;96&#x27;),           &#x27;Karthik&#x27;, 5, &#x27;Pure emotion.&#x27;),
-  ((select id from movies where title = &#x27;Interstellar&#x27;), &#x27;Priya&#x27;,   5, &#x27;Mind-blowing science.&#x27;),
-  ((select id from movies where title = &#x27;3 Idiots&#x27;),     &#x27;Rahul&#x27;,   4, &#x27;Funny and meaningful.&#x27;),
-  ((select id from movies where title = &#x27;Drishyam&#x27;),     &#x27;Meena&#x27;,   5, &#x27;Best thriller ever.&#x27;);</code></pre></div>
-  <div class="callout ok"><b class="t">Checkpoint</b>Table Editor shows 6 genres, 10 movies and 6 reviews.</div>
+  ((select id from movies where title = &#x27;Drishyam&#x27;),        &#x27;Anjali&#x27;,  5, &#x27;Georgekutty is a genius!&#x27;),
+  ((select id from movies where title = &#x27;Drishyam&#x27;),        &#x27;Arjun&#x27;,   5, &#x27;Best thriller ever.&#x27;),
+  ((select id from movies where title = &#x27;Premam&#x27;),          &#x27;Sreya&#x27;,   4, &#x27;Malar teacher steals the show.&#x27;),
+  ((select id from movies where title = &#x27;Manjummel Boys&#x27;),  &#x27;Akhil&#x27;,   5, &#x27;Gripping survival story.&#x27;),
+  ((select id from movies where title = &#x27;Vikram&#x27;),          &#x27;Fathima&#x27;, 4, &#x27;Mass climax!&#x27;),
+  ((select id from movies where title = &#x27;Interstellar&#x27;),    &#x27;Nikhil&#x27;,  5, &#x27;Mind-blowing science.&#x27;),
+  ((select id from movies where title = &#x27;Inception&#x27;),       &#x27;Arjun&#x27;,   4, &#x27;Need to watch it twice.&#x27;),
+  ((select id from movies where title = &#x27;The Dark Knight&#x27;), &#x27;Akhil&#x27;,   5, &#x27;The Joker is legendary.&#x27;);</code></pre></div>
+  <div class="callout ok"><b class="t">Checkpoint</b>Table Editor shows 6 genres, 13 movies (5 Malayalam, 3 Tamil, 5 Christopher Nolan) and 8 reviews.</div>
   <div class="callout"><b class="t">Notice the subquery</b><code>(select id from genres where name = 'Action')</code> looks up IDs by name instead of hard-coding them.</div>
   <div class="checkpoint">
     <span class="badge">PUSH 3</span>
@@ -586,9 +612,9 @@ group by g.name order by total_movies desc;
 -- Q3. Movies longer than 150 minutes
 select title, duration_min from movies where duration_min &gt; 150;
 
--- Q4. Tamil movies after 2015
+-- Q4. Malayalam movies after 2015
 select title, release_year from movies
-where language = &#x27;Tamil&#x27; and release_year &gt; 2015;
+where language = &#x27;Malayalam&#x27; and release_year &gt; 2015;
 
 -- Q5. Average rating at least 4.5 (HAVING)
 select m.title, round(avg(r.rating),1) as avg_rating
@@ -611,7 +637,7 @@ where title = &#x27;Interstellar&#x27;;</code></pre></div>
     <li>All reviews with the movie title (JOIN).</li>
     <li>Number of movies per language.</li>
     <li>The newest movie in the database.</li>
-    <li>Movies whose title starts with I (<code>LIKE</code>).</li>
+    <li>Movies whose title starts with M (<code>LIKE</code>).</li>
     <li>Delete one review; screenshot the table before and after.</li>
   </ol>
   <div class="checkpoint">
@@ -965,7 +991,7 @@ init();</code></pre></div>
     <tr><td><code>db.from("genres").select("id, name")</code></td><td><code>SELECT id, name FROM genres</code></td></tr>
     <tr><td><code>.order("name")</code></td><td><code>ORDER BY name</code></td></tr>
     <tr><td><code>.select("…, genres(name)")</code></td><td><code>JOIN genres ON genres.id = movies.genre_id</code></td></tr>
-    <tr><td><code>.ilike("title", "%vik%")</code></td><td><code>WHERE title ILIKE '%vik%'</code></td></tr>
+    <tr><td><code>.ilike("title", "%drish%")</code></td><td><code>WHERE title ILIKE '%drish%'</code></td></tr>
     <tr><td><code>.eq("genre_id", 3)</code></td><td><code>WHERE genre_id = 3</code></td></tr>
     <tr><td><code>db.from("reviews").insert({…})</code></td><td><code>INSERT INTO reviews (…) VALUES (…)</code></td></tr>
   </table></div>
@@ -976,9 +1002,9 @@ init();</code></pre></div>
   <h2>Test on your laptop</h2>
   <p class="intro">Test the Phase 8 files before you push them. Double-click <code>index.html</code> to open it in Chrome, or in VS Code install <b>Live Server</b> → right-click <code>index.html</code> → <b>Open with Live Server</b>.</p>
   <ul class="checklist">
-    <li>10 movies appear with posters</li>
+    <li>13 movies appear with posters</li>
     <li>Genre dropdown lists 6 genres</li>
-    <li>Typing <code>in</code> shows Inception and Interstellar</li>
+    <li>Typing <code>in</code> shows Inception, Interstellar and Minnal Murali (search ignores case)</li>
     <li>Clicking a movie opens the popup with its reviews</li>
     <li>A submitted review appears immediately in the popup</li>
     <li>The same review appears in Supabase → Table Editor → reviews</li>
@@ -1065,7 +1091,9 @@ init();</code></pre></div>
   </table></div>
   <div class="code"><div class="code-head"><span class="fname">database/06_personalisation.sql</span><button class="copy" type="button">Copy</button></div><pre><code class="language-sql">-- example
 alter table movies add column director text;
-update movies set director = &#x27;Lokesh Kanagaraj&#x27; where title = &#x27;Vikram&#x27;;</code></pre></div>
+update movies set director = &#x27;Jeethu Joseph&#x27; where title = &#x27;Drishyam&#x27;;
+update movies set director = &#x27;Christopher Nolan&#x27;
+where title in (&#x27;Memento&#x27;, &#x27;The Dark Knight&#x27;, &#x27;Inception&#x27;, &#x27;Interstellar&#x27;, &#x27;Oppenheimer&#x27;);</code></pre></div>
   <p>Then add the column to the <code>.select(...)</code> in <code>loadMovies()</code> and display it in <code>movieCard()</code> or <code>openMovie()</code>.</p>
   <h3>12.3 — Feature options</h3>
   <div class="tablewrap"><table>
@@ -1163,7 +1191,7 @@ update movies set director = &#x27;Lokesh Kanagaraj&#x27; where title = &#x27;Vi
     <tr><td><code>new row violates row-level security policy</code></td><td>Review failed the policy</td><td>Rating must be 1 to 5, name 1 to 50 characters, comment at most 500 characters</td></tr>
     <tr><td><code>relation "movie_ratings" does not exist</code></td><td>Script 4 not run</td><td>Run Script 4</td></tr>
     <tr><td><code>relation "genres" already exists</code></td><td>Script 1 run twice</td><td>Ignore it; the tables are already there</td></tr>
-    <tr><td><code>duplicate key value violates unique constraint "genres_name_key"</code></td><td>Script 2 run twice</td><td>Ignore it if Table Editor shows 6 genres and 10 movies; otherwise start over (below)</td></tr>
+    <tr><td><code>duplicate key value violates unique constraint "genres_name_key"</code></td><td>Script 2 run twice</td><td>Ignore it if Table Editor shows 6 genres and 13 movies; otherwise start over (below)</td></tr>
     <tr><td><code>more than one row returned by a subquery</code></td><td>Movies inserted twice, so a title now matches two rows</td><td>Start over (below)</td></tr>
     <tr><td>GitHub Pages shows 404</td><td>index.html not at root, or too soon</td><td>Move files to the root; wait 2 to 3 minutes</td></tr>
     <tr><td>Site shows the old version</td><td>Browser cache</td><td>Ctrl + Shift + R</td></tr>
@@ -1186,7 +1214,7 @@ drop table if exists reviews, movies, genres cascade;</code></pre></div>
     <li>Why is the publishable key safe in frontend code but the service_role key is not?</li>
     <li>What is a view, and how does it differ from a table?</li>
     <li>What does <code>check (rating between 1 and 5)</code> do if you insert 6?</li>
-    <li>Convert <code>db.from("movies").select("*").eq("language","Tamil")</code> into SQL.</li>
+    <li>Convert <code>db.from("movies").select("*").eq("language","Malayalam")</code> into SQL.</li>
     <li>Which normal form is your schema in? Justify.</li>
     <li>One example each of DDL, DML and DCL from your project.</li>
     <li>Trace a review from the browser form to the database row.</li>
@@ -1206,6 +1234,7 @@ drop table if exists reviews, movies, genres cascade;</code></pre></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<div id="gt"></div>
 <script>
 (function () {
   // Theme
@@ -1219,6 +1248,29 @@ drop table if exists reviews, movies, genres cascade;</code></pre></div>
     try { localStorage.setItem("cs-theme", next); } catch (e) {}
     renderMermaid();
   });
+
+
+  // Malayalam translation (Google Translate). Code, names and links stay in English.
+  const isMl = /(^|;\s*)googtrans=\/en\/ml/.test(document.cookie);
+  const langBtn = document.getElementById("langBtn");
+  langBtn.innerHTML = isMl ? "🌐 English" : "🌐 മലയാളം";
+  langBtn.title = isMl ? "Show the original English page" : "Translate this page to Malayalam (machine translation)";
+  langBtn.addEventListener("click", () => {
+    const gone = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie = gone;
+    document.cookie = gone + "; domain=" + location.hostname;
+    document.cookie = gone + "; domain=." + location.hostname;
+    if (!isMl) document.cookie = "googtrans=/en/ml; path=/";
+    location.reload();
+  });
+  document.querySelectorAll("pre, code, .code, .mermaid-wrap, .brand, .fname, .copy, #langBtn").forEach((e) => { e.classList.add("notranslate"); e.setAttribute("translate", "no"); });
+  if (isMl) {
+    window.googleTranslateElementInit = () =>
+      new google.translate.TranslateElement({ pageLanguage: "en", includedLanguages: "ml", autoDisplay: false }, "gt");
+    const gs = document.createElement("script");
+    gs.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    document.body.appendChild(gs);
+  }
 
   // Syntax highlighting
   if (window.hljs) document.querySelectorAll("pre code").forEach((b) => hljs.highlightElement(b));
