@@ -34,8 +34,9 @@ code{font-family:"JetBrains Mono",monospace}
 .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
 .topbar .spacer{flex:1}
 .pill{font-size:.78rem;color:var(--muted);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
-.iconbtn{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:7px 11px;cursor:pointer;font:inherit;font-size:.85rem}
+.iconbtn{white-space:nowrap;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:7px 11px;cursor:pointer;font:inherit;font-size:.85rem}
 .iconbtn:hover{border-color:var(--accent)}
+.navlink{text-decoration:none;font-weight:600;border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
 #menuBtn{display:none}
 
 /* Hero */
@@ -86,15 +87,6 @@ ol.steps>li{counter-increment:s;position:relative;padding:12px 14px 12px 54px;ba
 ol.steps>li::before{content:counter(s);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:8px;
   background:var(--accent);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.85rem}
 ol.steps ul{margin:6px 0 0;padding-left:18px}
-.done-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
-.done-tools input{flex:1;min-width:200px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit;font-size:.92rem}
-.done-count{font-size:.85rem;color:var(--muted)}
-.done-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:0;padding:0;list-style:none}
-.done-list li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:12px;padding:12px 14px;min-width:0}
-.done-list b{display:block;overflow-wrap:anywhere}
-.done-list small{color:var(--muted);display:block;margin-bottom:6px}
-.done-list a{font-size:.88rem;margin-right:12px;font-weight:600}
-.done-empty{color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:12px;padding:16px;text-align:center}
 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .tablewrap{overflow-x:auto}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -155,9 +147,15 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
   .pill{display:none}
 }
 @media (max-width:520px){
+  .topbar{gap:8px;padding:10px 12px}
+  .brand{font-size:.95rem}
+  .iconbtn{padding:6px 9px;font-size:.8rem}
   .hero{padding:40px 16px 32px}
   .layout{padding:24px 16px 48px}
   ol.steps>li{padding-left:48px}
+}
+@media (max-width:420px){
+  .brand .txt{display:none}
 }
 </style>
 </head>
@@ -165,9 +163,10 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
 
 <div class="topbar">
   <button class="iconbtn" id="menuBtn" type="button" aria-label="Open menu">☰ Menu</button>
-  <a class="brand" href="#top"><span class="dot"></span>CineSuper Weekend Task</a>
+  <a class="brand" href="#top"><span class="dot"></span><span class="txt">CineSuper Weekend Task</span></a>
   <span class="spacer"></span>
   <span class="pill">Jain School of Future Technology</span>
+  <a class="iconbtn navlink" href="status.html">📊 Task Status</a>
   <button class="iconbtn" id="themeBtn" type="button">◐ Theme</button>
 </div>
 
@@ -212,7 +211,6 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
     <nav class="toc" id="toc">
       <div class="grp">Start</div>
       <a href="#overview">Overview</a>
-      <a href="#completed">✅ Completed students</a>
       <a href="#rules">Completion rules</a>
       <div class="grp">Setup</div>
       <a href="#p0">0 · Accounts & repo</a>
@@ -1176,17 +1174,6 @@ update movies set director = &#x27;Lokesh Kanagaraj&#x27; where title = &#x27;Vi
 drop table if exists reviews, movies, genres cascade;</code></pre></div>
 </section>
 
-<section class="block" id="completed">
-  <span class="phase-tag">Hall of completion</span>
-  <h2>Students who completed the task</h2>
-  <p class="intro">Students appear here once faculty has verified all 8 commits and a working live link. Open any link to see their CineSuper.</p>
-  <div class="done-tools">
-    <input id="doneSearch" type="search" placeholder="Search by name or reg no" aria-label="Search completed students">
-    <span class="done-count" id="doneCount">Loading…</span>
-  </div>
-  <ul class="done-list" id="doneList"></ul>
-</section>
-
 <section class="block" id="viva">
   <span class="phase-tag">Prepare</span>
   <h2>Viva questions</h2>
@@ -1311,49 +1298,6 @@ drop table if exists reviews, movies, genres cascade;</code></pre></div>
     });
   }, { rootMargin: "-30% 0px -65% 0px" });
   document.querySelectorAll("section.block").forEach((s) => obs.observe(s));
-
-  // Completed students (faculty edits students.json in the repo)
-  const doneList = document.getElementById("doneList");
-  const doneCount = document.getElementById("doneCount");
-  const doneSearch = document.getElementById("doneSearch");
-  let students = [];
-  const safeUrl = (u) => (/^https:\/\//i.test(u || "") ? u : null);
-  function renderStudents() {
-    const q = doneSearch.value.trim().toLowerCase();
-    const shown = students.filter((st) => (st.name + " " + st.regno).toLowerCase().includes(q));
-    doneList.replaceChildren();
-    doneCount.textContent = `${students.length} completed`;
-    if (!shown.length) {
-      const li = document.createElement("li");
-      li.className = "done-empty";
-      li.style.gridColumn = "1 / -1";
-      li.textContent = students.length ? "No student matches your search." : "No students have completed the task yet. Be the first!";
-      doneList.appendChild(li);
-      return;
-    }
-    shown.forEach((st) => {
-      const li = document.createElement("li");
-      const b = document.createElement("b"); b.textContent = st.name;
-      const sm = document.createElement("small"); sm.textContent = st.regno;
-      li.append(b, sm);
-      [["Live site ↗", st.live], ["Repo ↗", st.repo]].forEach(([label, url]) => {
-        if (!safeUrl(url)) return;
-        const a = document.createElement("a");
-        a.href = url; a.textContent = label; a.target = "_blank"; a.rel = "noopener";
-        li.appendChild(a);
-      });
-      doneList.appendChild(li);
-    });
-  }
-  fetch("students.json", { cache: "no-store" })
-    .then((r) => (r.ok ? r.json() : []))
-    .then((data) => { students = Array.isArray(data) ? data.filter((st) => st && st.name) : []; })
-    .catch(() => { students = []; })
-    .finally(() => {
-      students.sort((a, b) => String(a.regno).localeCompare(String(b.regno)));
-      renderStudents();
-    });
-  doneSearch.addEventListener("input", renderStudents);
 
   // Back to top
   const toTop = document.getElementById("toTop");

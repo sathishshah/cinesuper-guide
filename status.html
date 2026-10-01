@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineSuper Task Status</title>
+<meta name="description" content="Task completion status, live links and awarded marks for the CineSuper compulsory weekend task. Jain School of Future Technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b10; --panel:#13131b; --panel-2:#1a1a24; --line:#262633;
+  --text:#ecebf2; --muted:#9a98ab; --accent:#e50914; --accent-2:#ff4d58;
+  --gold:#f5b50a; --ok:#22c55e; --warn:#f59e0b; --info:#38bdf8; --bad:#f43f5e;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --bg:#f7f6f3; --panel:#ffffff; --panel-2:#f1efea; --line:#e3e0d8;
+  --text:#1b1a22; --muted:#5f5d6b; --accent:#c8102e; --accent-2:#e11d48;
+  --ok:#15803d; --warn:#b45309; --info:#0369a1; --bad:#be123c;
+  --shadow:0 8px 24px rgba(20,20,40,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--accent-2)}
+
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:10px;padding:12px 20px;
+  background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{font-weight:800;letter-spacing:-.02em;font-size:1.1rem;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.spacer{flex:1}
+.iconbtn{white-space:nowrap;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:7px 11px;cursor:pointer;font:inherit;font-size:.85rem;text-decoration:none}
+.iconbtn:hover{border-color:var(--accent)}
+.iconbtn.current{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));font-weight:600}
+
+.hero{padding:44px 24px 30px;border-bottom:1px solid var(--line);
+  background:radial-gradient(900px 400px at 15% -10%,color-mix(in srgb,var(--accent) 24%,transparent),transparent 60%),
+             radial-gradient(700px 300px at 95% 10%,color-mix(in srgb,var(--gold) 12%,transparent),transparent 60%)}
+.wrap{max-width:1180px;margin:0 auto}
+.eyebrow{color:var(--accent-2);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.76rem}
+h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1;margin:8px 0 10px;letter-spacing:-.03em}
+.lead{color:var(--muted);margin:0;max-width:680px}
+.updated{color:var(--muted);font-size:.82rem;margin-top:10px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat small{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.stat b{display:block;font-size:1.7rem;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.stat b span{font-size:.9rem;color:var(--muted);font-weight:600}
+.stat .meter{height:6px;background:var(--panel-2);border-radius:99px;overflow:hidden;margin-top:8px}
+.stat .meter i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .4s}
+
+main{padding:26px 24px 60px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.search{flex:1 1 240px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit}
+.search:focus,select:focus{outline:2px solid color-mix(in srgb,var(--accent) 55%,transparent);outline-offset:1px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.fbtn{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:7px 12px;font:inherit;font-size:.84rem;cursor:pointer}
+.fbtn[aria-pressed="true"]{color:var(--text);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--panel))}
+.fbtn .n{font-variant-numeric:tabular-nums;opacity:.75;margin-left:4px}
+
+.tablecard{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+thead th{background:var(--panel-2);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;white-space:nowrap;position:sticky;top:0}
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{color:var(--text)}
+th .arrow{opacity:.35;margin-left:4px}
+th[aria-sort="ascending"] .arrow,th[aria-sort="descending"] .arrow{opacity:1;color:var(--accent-2)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}
+td.num{color:var(--muted);font-variant-numeric:tabular-nums;width:44px}
+.who b{display:block;font-weight:600}
+.who small{color:var(--muted);font-family:ui-monospace,Menlo,monospace;font-size:.8rem}
+
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:.78rem;font-weight:700;white-space:nowrap;
+  border:1px solid color-mix(in srgb,var(--c) 40%,transparent);color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+.s-completed{--c:var(--ok)} .s-review{--c:var(--info)} .s-incomplete{--c:var(--warn)} .s-missing{--c:var(--bad)}
+
+.commits{display:flex;align-items:center;gap:8px;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.85rem}
+.dots{display:inline-flex;gap:3px}
+.dots i{width:7px;height:14px;border-radius:3px;background:var(--panel-2);border:1px solid var(--line)}
+.dots i.on{background:var(--ok);border-color:var(--ok)}
+
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.lbtn{display:inline-flex;align-items:center;gap:4px;border-radius:8px;padding:5px 10px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap;
+  border:1px solid var(--line);color:var(--text);background:var(--panel-2)}
+.lbtn.live{background:var(--accent);border-color:var(--accent);color:#fff}
+.lbtn:hover{filter:brightness(1.12)}
+.none{color:var(--muted);font-size:.85rem}
+
+.marks{min-width:130px}
+.markrow{display:flex;align-items:baseline;gap:4px;font-variant-numeric:tabular-nums}
+.markrow b{font-size:1.15rem}
+.markrow span{color:var(--muted);font-size:.8rem}
+.mbar{height:6px;border-radius:99px;background:var(--panel-2);overflow:hidden;margin-top:5px}
+.mbar i{display:block;height:100%;border-radius:99px;background:var(--mc)}
+.m-hi{--mc:var(--ok)} .m-mid{--mc:var(--warn)} .m-lo{--mc:var(--bad)}
+td.remarks{color:var(--muted);font-size:.85rem;max-width:240px}
+
+.empty{padding:48px 20px;text-align:center;color:var(--muted)}
+.empty .big{font-size:2rem}
+.note{margin-top:14px;color:var(--muted);font-size:.84rem}
+
+footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:.88rem}
+footer strong{color:var(--text)}
+
+/* Phones: rows become cards */
+@media (max-width:820px){
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tbody tr{padding:14px 16px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px 12px}
+  tbody tr:last-child{border-bottom:none}
+  td{border:none;padding:0}
+  td.num{display:none}
+  td.who{grid-column:1}
+  td.status{grid-column:2;justify-self:end}
+  td.commits-td,td.links-td,td.marks,td.remarks{grid-column:1 / -1}
+  td[data-label]::before{content:attr(data-label);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:3px}
+  td.remarks:empty{display:none}
+  td.remarks{max-width:none}
+}
+@media (max-width:520px){
+  .topbar{padding:10px 12px;gap:8px}
+  .brand{font-size:.95rem}
+  .iconbtn{padding:6px 9px;font-size:.8rem}
+  .hero{padding:32px 16px 24px}
+  main{padding:20px 16px 48px}
+}
+@media (max-width:420px){ .brand .txt{display:none} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="index.html"><span class="dot"></span><span class="txt">CineSuper Weekend Task</span></a>
+  <span class="spacer"></span>
+  <a class="iconbtn" href="index.html">📘 Guide</a>
+  <a class="iconbtn current" href="status.html" aria-current="page">📊 Task Status</a>
+  <button class="iconbtn" id="themeBtn" type="button">◐ Theme</button>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Database Management Systems · Compulsory Weekend Task</div>
+    <h1>Task completion status</h1>
+    <p class="lead">Verified status, live CineSuper links and marks awarded out of <span id="maxLead">25</span>. Marks appear once evaluation is complete.</p>
+    <div class="updated" id="updated"></div>
+    <div class="stats">
+      <div class="stat"><small>Students listed</small><b id="stTotal">–</b></div>
+      <div class="stat"><small>Completed</small><b id="stDone">–</b><div class="meter"><i id="stDoneBar"></i></div></div>
+      <div class="stat"><small>Average marks</small><b id="stAvg">–</b></div>
+      <div class="stat"><small>Highest marks</small><b id="stTop">–</b></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="controls">
+      <input class="search" id="search" type="search" placeholder="Search by name or reg no" aria-label="Search students">
+      <div class="filters" id="filters" role="group" aria-label="Filter by status"></div>
+    </div>
+
+    <div class="tablecard">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="sortable" data-key="name" aria-sort="none">Student<span class="arrow">↕</span></th>
+            <th class="sortable" data-key="status" aria-sort="none">Status<span class="arrow">↕</span></th>
+            <th class="sortable" data-key="commits" aria-sort="none">Commits<span class="arrow">↕</span></th>
+            <th>Links</th>
+            <th class="sortable" data-key="marks" aria-sort="none">Marks<span class="arrow">↕</span></th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+    <p class="note">Something wrong with your entry? Tell your faculty in the next class. Only verified submissions are listed.</p>
+  </div>
+</main>
+
+<footer>
+  <div><strong>Jain School of Future Technology</strong></div>
+  <div>Database Management Systems · CineSuper Compulsory Weekend Task</div>
+  <div style="margin-top:6px">Prepared by <strong>Sathish Kumar M</strong></div>
+</footer>
+
+<script>
+(function () {
+  // Theme (shared with the guide)
+  const root = document.documentElement;
+  const saved = (() => { try { return localStorage.getItem("cs-theme"); } catch (e) { return null; } })();
+  if (saved) root.setAttribute("data-theme", saved);
+  else if (window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches) root.setAttribute("data-theme", "light");
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("cs-theme", next); } catch (e) {}
+  });
+
+  const STATUSES = {
+    completed:  { label: "Completed",     cls: "s-completed",  order: 0 },
+    review:     { label: "Under review",  cls: "s-review",     order: 1 },
+    incomplete: { label: "Incomplete",    cls: "s-incomplete", order: 2 },
+    missing:    { label: "Not submitted", cls: "s-missing",    order: 3 },
+  };
+  function statusKey(raw) {
+    const s = String(raw || "").toLowerCase().replace(/[^a-z]/g, "");
+    if (s.startsWith("complete")) return "completed";
+    if (s.includes("review") || s.includes("pending")) return "review";
+    if (s.startsWith("incomplete") || s.includes("partial") || s.includes("progress")) return "incomplete";
+    if (s.includes("not") || s.includes("missing")) return "missing";
+    return "review";
+  }
+  const safeUrl = (u) => (/^https:\/\//i.test(u || "") ? u : null);
+  const isNum = (v) => typeof v === "number" && isFinite(v);
+
+  let MAX = 25, students = [], filter = "all", sortKey = "regno", sortDir = 1;
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const fmt = (n) => (Math.round(n * 10) / 10).toString();
+
+  function stats() {
+    const total = students.length;
+    const done = students.filter((s) => s.key === "completed").length;
+    const marked = students.filter((s) => isNum(s.marks));
+    $("stTotal").textContent = total;
+    $("stDone").replaceChildren(document.createTextNode(done + " "), el("span", null, "/ " + total));
+    $("stDoneBar").style.width = total ? (done / total) * 100 + "%" : "0";
+    if (marked.length) {
+      const avg = marked.reduce((a, s) => a + s.marks, 0) / marked.length;
+      const top = Math.max(...marked.map((s) => s.marks));
+      $("stAvg").replaceChildren(document.createTextNode(fmt(avg) + " "), el("span", null, "/ " + MAX));
+      $("stTop").replaceChildren(document.createTextNode(fmt(top) + " "), el("span", null, "/ " + MAX));
+    } else {
+      $("stAvg").textContent = "–"; $("stTop").textContent = "–";
+    }
+  }
+
+  function filters() {
+    const box = $("filters");
+    box.replaceChildren();
+    const counts = { all: students.length };
+    students.forEach((s) => (counts[s.key] = (counts[s.key] || 0) + 1));
+    [["all", "All"], ...Object.entries(STATUSES).map(([k, v]) => [k, v.label])].forEach(([k, label]) => {
+      if (k !== "all" && !counts[k]) return;
+      const b = el("button", "fbtn", label);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(filter === k));
+      b.appendChild(el("span", "n", String(counts[k] || 0)));
+      b.addEventListener("click", () => { filter = k; filters(); render(); });
+      box.appendChild(b);
+    });
+  }
+
+  function compare(a, b) {
+    let x, y;
+    if (sortKey === "status") { x = STATUSES[a.key].order; y = STATUSES[b.key].order; }
+    else if (sortKey === "marks" || sortKey === "commits") {
+      x = isNum(a[sortKey]) ? a[sortKey] : -1; y = isNum(b[sortKey]) ? b[sortKey] : -1;
+    } else { x = String(a[sortKey] || "").toLowerCase(); y = String(b[sortKey] || "").toLowerCase(); }
+    if (x < y) return -sortDir;
+    if (x > y) return sortDir;
+    return String(a.regno).localeCompare(String(b.regno));
+  }
+
+  function render() {
+    const q = $("search").value.trim().toLowerCase();
+    const shown = students
+      .filter((s) => filter === "all" || s.key === filter)
+      .filter((s) => (s.name + " " + s.regno).toLowerCase().includes(q))
+      .sort(compare);
+
+    const tbody = $("rows");
+    tbody.replaceChildren();
+    shown.forEach((s, i) => {
+      const tr = el("tr");
+
+      tr.appendChild(el("td", "num", String(i + 1)));
+
+      const who = el("td", "who");
+      who.append(el("b", null, s.name), el("small", null, s.regno || ""));
+      tr.appendChild(who);
+
+      const st = el("td", "status");
+      st.appendChild(el("span", "pill " + STATUSES[s.key].cls, STATUSES[s.key].label));
+      tr.appendChild(st);
+
+      const cm = el("td", "commits-td"); cm.dataset.label = "Commits";
+      if (isNum(s.commits)) {
+        const wrap = el("div", "commits"), dots = el("span", "dots");
+        for (let k = 1; k <= 8; k++) dots.appendChild(el("i", k <= s.commits ? "on" : ""));
+        wrap.append(dots, document.createTextNode(Math.min(s.commits, 8) + "/8"));
+        cm.appendChild(wrap);
+      } else cm.appendChild(el("span", "none", "–"));
+      tr.appendChild(cm);
+
+      const ln = el("td", "links-td"); ln.dataset.label = "Links";
+      const lw = el("div", "links");
+      [["Live site ↗", s.live, "lbtn live"], ["Repo ↗", s.repo, "lbtn"]].forEach(([t, u, c]) => {
+        if (!safeUrl(u)) return;
+        const a = el("a", c, t); a.href = u; a.target = "_blank"; a.rel = "noopener";
+        lw.appendChild(a);
+      });
+      ln.appendChild(lw.childElementCount ? lw : el("span", "none", "No link yet"));
+      tr.appendChild(ln);
+
+      const mk = el("td", "marks"); mk.dataset.label = "Marks";
+      if (isNum(s.marks)) {
+        const pct = Math.max(0, Math.min(1, s.marks / MAX));
+        const row = el("div", "markrow");
+        row.append(el("b", null, fmt(s.marks)), el("span", null, "/ " + MAX));
+        const bar = el("div", "mbar " + (pct >= 0.8 ? "m-hi" : pct >= 0.5 ? "m-mid" : "m-lo"));
+        const fill = el("i"); fill.style.width = pct * 100 + "%"; bar.appendChild(fill);
+        mk.append(row, bar);
+      } else mk.appendChild(el("span", "none", "Not awarded yet"));
+      tr.appendChild(mk);
+
+      const rm = el("td", "remarks", s.remarks || ""); if (s.remarks) rm.dataset.label = "Remarks";
+      tr.appendChild(rm);
+
+      tbody.appendChild(tr);
+    });
+
+    const empty = $("empty");
+    empty.hidden = shown.length > 0;
+    if (!shown.length) {
+      empty.replaceChildren(el("div", "big", students.length ? "🔍" : "🎬"),
+        el("p", null, students.length ? "No student matches your search or filter." : "No submissions have been verified yet. Check back after the weekend."));
+    }
+    document.querySelectorAll("th.sortable").forEach((th) =>
+      th.setAttribute("aria-sort", th.dataset.key === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"));
+  }
+
+  document.querySelectorAll("th.sortable").forEach((th) => th.addEventListener("click", () => {
+    const k = th.dataset.key;
+    if (sortKey === k) sortDir = -sortDir;
+    else { sortKey = k; sortDir = k === "marks" || k === "commits" ? -1 : 1; }
+    render();
+  }));
+  $("search").addEventListener("input", render);
+
+  fetch("students.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : []))
+    .catch(() => [])
+    .then((data) => {
+      const list = Array.isArray(data) ? data : (data && Array.isArray(data.students) ? data.students : []);
+      if (data && !Array.isArray(data)) {
+        if (isNum(data.maxMarks)) MAX = data.maxMarks;
+        if (data.updated) $("updated").textContent = "Last updated: " + data.updated;
+      }
+      $("maxLead").textContent = MAX;
+      students = list.filter((s) => s && s.name).map((s) => ({
+        ...s,
+        name: String(s.name),
+        regno: String(s.regno || ""),
+        key: statusKey(s.status),
+        marks: s.marks === "" || s.marks == null ? null : Number(s.marks),
+        commits: s.commits == null || s.commits === "" ? null : Number(s.commits),
+      }));
+      stats(); filters(); render();
+    });
+})();
+</script>
+</body>
+</html>

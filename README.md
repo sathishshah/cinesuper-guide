@@ -1,23 +1,40 @@
 # CineSuper: Compulsory Weekend Task Guide
 
-Live guide: https://sathishshah.github.io/cinesuper-guide/
+- Guide: https://sathishshah.github.io/cinesuper-guide/
+- Task status: https://sathishshah.github.io/cinesuper-guide/status.html
 
-## Adding a student to "Completed students"
+## Updating the Task Status page
 
-After verifying a student's 8 commits and live link, add an entry to `students.json` and commit:
+Edit `students.json` (on GitHub: open the file → pencil icon → Commit changes). The site updates in 1 to 2 minutes.
 
 ```json
-[
-  {
-    "name": "Ravi Kumar",
-    "regno": "24CS045",
-    "live": "https://ravi-cse24.github.io/cinesuper-24cs045/",
-    "repo": "https://github.com/ravi-cse24/cinesuper-24cs045"
-  }
-]
+{
+  "updated": "6 Oct 2026",
+  "maxMarks": 25,
+  "students": [
+    {
+      "name": "Ravi Kumar",
+      "regno": "24CS045",
+      "status": "Completed",
+      "commits": 8,
+      "marks": 23,
+      "live": "https://ravi-cse24.github.io/cinesuper-24cs045/",
+      "repo": "https://github.com/ravi-cse24/cinesuper-24cs045",
+      "remarks": "Excellent watchlist feature"
+    }
+  ]
+}
 ```
 
-- Separate entries with commas; the file must stay valid JSON.
-- Links must start with `https://`, otherwise they are hidden.
-- The list is sorted by register number automatically.
-- You can edit the file directly on GitHub (pencil icon); the site updates in 1 to 2 minutes.
+| Field | Required | Notes |
+|---|---|---|
+| `name` | yes | Student's name |
+| `regno` | yes | Register number; default sort order |
+| `status` | yes | `Completed`, `Under review`, `Incomplete` or `Not submitted` |
+| `commits` | no | Number of checkpoint commits found (0–8) |
+| `marks` | no | Leave out (or `null`) until awarded; decimals allowed |
+| `live`, `repo` | no | Must start with `https://`, otherwise hidden |
+| `remarks` | no | Short note shown in the table |
+
+- Separate students with commas; the file must stay valid JSON (check at https://jsonlint.com if the page shows no students).
+- `updated` is shown as "Last updated" under the heading.
