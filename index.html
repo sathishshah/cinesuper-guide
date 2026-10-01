@@ -86,6 +86,15 @@ ol.steps>li{counter-increment:s;position:relative;padding:12px 14px 12px 54px;ba
 ol.steps>li::before{content:counter(s);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:8px;
   background:var(--accent);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.85rem}
 ol.steps ul{margin:6px 0 0;padding-left:18px}
+.done-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
+.done-tools input{flex:1;min-width:200px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit;font-size:.92rem}
+.done-count{font-size:.85rem;color:var(--muted)}
+.done-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.done-list li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:12px;padding:12px 14px;min-width:0}
+.done-list b{display:block;overflow-wrap:anywhere}
+.done-list small{color:var(--muted);display:block;margin-bottom:6px}
+.done-list a{font-size:.88rem;margin-right:12px;font-weight:600}
+.done-empty{color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:12px;padding:16px;text-align:center}
 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .tablewrap{overflow-x:auto}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -203,6 +212,7 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
     <nav class="toc" id="toc">
       <div class="grp">Start</div>
       <a href="#overview">Overview</a>
+      <a href="#completed">✅ Completed students</a>
       <a href="#rules">Completion rules</a>
       <div class="grp">Setup</div>
       <a href="#p0">0 · Accounts & repo</a>
@@ -268,7 +278,7 @@ footer.site .inst{font-size:1.05rem;color:var(--text);font-weight:700;margin-bot
   <span class="phase-tag">Read first</span>
   <h2>Completion rules</h2>
   <div class="callout danger"><b class="t">Compulsory weekend task. No push, no marks.</b>Every student must complete all phases at home over the weekend. There is no lab session for this project, and work that exists only on your laptop or in Supabase is not evaluated.</div>
-  <div class="callout"><b class="t">Working on your own</b>Faculty will not be available to fix problems during the weekend. Read each step fully before doing it, use <a href="#trouble">Troubleshooting</a> when something breaks, and start on Saturday so you have time to recover from mistakes.</div>
+  <div class="callout"><b class="t">Working on your own</b>Read each step fully before doing it, use <a href="#trouble">Troubleshooting</a> when something breaks, and start on Saturday so you have time to recover from mistakes.</div>
   <ul>
     <li>Every student has their <b>own</b> Supabase project and their <b>own</b> public GitHub repo named <code>cinesuper-&lt;regno&gt;</code>.</li>
     <li>Every <b>Push checkpoint</b> in this guide must appear as a separate commit in your repo history (8 in total).</li>
@@ -1166,6 +1176,17 @@ update movies set director = &#x27;Lokesh Kanagaraj&#x27; where title = &#x27;Vi
 drop table if exists reviews, movies, genres cascade;</code></pre></div>
 </section>
 
+<section class="block" id="completed">
+  <span class="phase-tag">Hall of completion</span>
+  <h2>Students who completed the task</h2>
+  <p class="intro">Students appear here once faculty has verified all 8 commits and a working live link. Open any link to see their CineSuper.</p>
+  <div class="done-tools">
+    <input id="doneSearch" type="search" placeholder="Search by name or reg no" aria-label="Search completed students">
+    <span class="done-count" id="doneCount">Loading…</span>
+  </div>
+  <ul class="done-list" id="doneList"></ul>
+</section>
+
 <section class="block" id="viva">
   <span class="phase-tag">Prepare</span>
   <h2>Viva questions</h2>
@@ -1290,6 +1311,49 @@ drop table if exists reviews, movies, genres cascade;</code></pre></div>
     });
   }, { rootMargin: "-30% 0px -65% 0px" });
   document.querySelectorAll("section.block").forEach((s) => obs.observe(s));
+
+  // Completed students (faculty edits students.json in the repo)
+  const doneList = document.getElementById("doneList");
+  const doneCount = document.getElementById("doneCount");
+  const doneSearch = document.getElementById("doneSearch");
+  let students = [];
+  const safeUrl = (u) => (/^https:\/\//i.test(u || "") ? u : null);
+  function renderStudents() {
+    const q = doneSearch.value.trim().toLowerCase();
+    const shown = students.filter((st) => (st.name + " " + st.regno).toLowerCase().includes(q));
+    doneList.replaceChildren();
+    doneCount.textContent = `${students.length} completed`;
+    if (!shown.length) {
+      const li = document.createElement("li");
+      li.className = "done-empty";
+      li.style.gridColumn = "1 / -1";
+      li.textContent = students.length ? "No student matches your search." : "No students have completed the task yet. Be the first!";
+      doneList.appendChild(li);
+      return;
+    }
+    shown.forEach((st) => {
+      const li = document.createElement("li");
+      const b = document.createElement("b"); b.textContent = st.name;
+      const sm = document.createElement("small"); sm.textContent = st.regno;
+      li.append(b, sm);
+      [["Live site ↗", st.live], ["Repo ↗", st.repo]].forEach(([label, url]) => {
+        if (!safeUrl(url)) return;
+        const a = document.createElement("a");
+        a.href = url; a.textContent = label; a.target = "_blank"; a.rel = "noopener";
+        li.appendChild(a);
+      });
+      doneList.appendChild(li);
+    });
+  }
+  fetch("students.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : []))
+    .then((data) => { students = Array.isArray(data) ? data.filter((st) => st && st.name) : []; })
+    .catch(() => { students = []; })
+    .finally(() => {
+      students.sort((a, b) => String(a.regno).localeCompare(String(b.regno)));
+      renderStudents();
+    });
+  doneSearch.addEventListener("input", renderStudents);
 
   // Back to top
   const toTop = document.getElementById("toTop");
