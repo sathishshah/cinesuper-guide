@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 02:10 PM IST",
+  "updated": "04 Oct 2026, 03:57 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -108,8 +108,11 @@
     {
       "name": "Sivanya Rajeev",
       "regno": "JSOFT26148",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 7,
+      "live": "https://sivanyarajeev10-cell.github.io/cinesuper-jsoft26148/",
+      "repo": "https://github.com/sivanyarajeev10-cell/cinesuper-jsoft26148",
+      "remarks": "Missing files: app.js, database/01_tables.sql, database/02_seed.sql, screenshots/ · Missing commits: Phase 3 · Live site not loading (HTTP 404)"
     },
     {
       "name": "Mohammed Nahid",
