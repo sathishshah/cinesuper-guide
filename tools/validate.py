@@ -165,8 +165,8 @@ def validate(s, deadline):
     else:
         owner, repo = m.group(1), m.group(2)
         result["repo"] = f"https://github.com/{owner}/{repo}"
-        if repo.lower() != expected_repo:
-            problems.append(f"Repo must be named {expected_repo}")
+        if regno.lower() not in repo.lower():
+            problems.append(f"Repo name must include your JSOFT ID (e.g. {expected_repo})")
         status, info = gh(f"/repos/{owner}/{repo}")
         if status != 200 or not info:
             problems.append("Repo not found or not public")
@@ -263,9 +263,10 @@ def main():
         if deadline.tzinfo is None:
             deadline = deadline.replace(tzinfo=timezone.utc)
 
-    latest = {}
+    latest, counts = {}, {}
     for s in load_submissions():
         reg = re.sub(r"\s+", "", s.get("regno", "")).upper()
+        counts[reg] = counts.get(reg, 0) + 1
         if reg and (reg not in latest or s.get("submitted_at", "") >= latest[reg].get("submitted_at", "")):
             latest[reg] = s
 
@@ -278,6 +279,9 @@ def main():
                 marks[reg] = row
 
     results = [validate(s, deadline) for s in latest.values()]
+    dupes = {k: v for k, v in counts.items() if v > 1}
+    if dupes:
+        print("Duplicate submissions (latest one is used): " + ", ".join(f"{k} x{v}" for k, v in sorted(dupes.items())))
 
     # Same repo or same Supabase project used by two students
     for field, label in (("repo", "repo"), ("supabase", "Supabase project")):

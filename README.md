@@ -25,7 +25,7 @@ student and republishes `students.json`. Run it any time from **Actions → Upda
 
 | Check | Fails when |
 |---|---|
-| Repo URL | Not `https://github.com/<user>/cinesuper-<jsoft-id>` (e.g. `cinesuper-jsoft26451`) |
+| Repo URL | Not a `https://github.com/<user>/<repo>` URL, or the repo name does not include the student's JSOFT ID (recommended: `cinesuper-jsoft26451`) |
 | Repo | Not found or private |
 | Files | Any of `index.html`, `style.css`, `config.js`, `app.js`, `README.md`, `database/01–06_*.sql`, `screenshots/` missing |
 | Commits | Any of the 8 `Phase N: …` commits missing (commits after `deadline` are not counted) |
