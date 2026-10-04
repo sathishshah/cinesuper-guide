@@ -180,8 +180,9 @@ def validate(s, deadline):
         status, tree = gh(f"/repos/{owner}/{repo}/git/trees/{branch}?recursive=1")
         paths = {t["path"] for t in (tree or {}).get("tree", [])} if status == 200 else set()
         missing = [f for f in REQUIRED_FILES if f not in paths]
-        if not any(p.startswith("screenshots/") for p in paths):
-            missing.append("screenshots/")
+        # Any folder named screenshot(s), any case or location, holding at least one image
+        if not any(re.search(r"(^|/)screenshots?/.+\.(png|jpe?g|gif|webp)$", p, re.I) for p in paths):
+            missing.append("screenshots/ (with images)")
         if missing:
             problems.append("Missing files: " + ", ".join(missing[:4]) + (" …" if len(missing) > 4 else ""))
 
@@ -192,11 +193,18 @@ def validate(s, deadline):
                 break
             for c in commits:
                 msg = c["commit"]["message"].strip()
-                pm = re.match(r"phase\s*(\d+)\b", msg, re.I)
-                if not pm or int(pm.group(1)) not in REQUIRED_PHASES:
+                pm = re.match(r"phase\s*(\d+)\b\W*(.*)", msg, re.I)
+                if not pm:
+                    continue
+                phase = int(pm.group(1))
+                # Right description with a wrong number (e.g. "Phase 9: README and live link") still counts
+                by_text = [n for n, d in REQUIRED_PHASES.items() if pm.group(2).lower().startswith(d.lower())]
+                if by_text:
+                    phase = by_text[0]
+                if phase not in REQUIRED_PHASES:
                     continue
                 when = datetime.fromisoformat(c["commit"]["committer"]["date"].replace("Z", "+00:00"))
-                (late if deadline and when > deadline else found).add(int(pm.group(1)))
+                (late if deadline and when > deadline else found).add(phase)
             page += 1
         result["commits"] = len(found)
         absent = [p for p in REQUIRED_PHASES if p not in found]
