@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 10:30 AM IST",
+  "updated": "04 Oct 2026, 01:47 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -59,8 +59,11 @@
     {
       "name": "Alan Godley John",
       "regno": "JSOFT26085",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 5,
+      "live": "https://g0dley.github.io/cineSuper--Alan-JSOFT26085/",
+      "repo": "https://github.com/G0DLEY/cineSuper--Alan-JSOFT26085",
+      "remarks": "Repo must be named cinesuper-jsoft26085 · Missing files: screenshots/ · Missing commits: Phase 0, Phase 4, Phase 8 · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable"
     },
     {
       "name": "Akhilesh G",
