@@ -397,10 +397,12 @@ git clone https://github.com/YOUR-USERNAME/cinesuper-YOUR-JSOFT-ID.git</code></p
 └── screenshots/</code></pre></div>
 
   <h3 id="push-routine">Step 0.9 — The push routine (use it at every checkpoint)</h3>
-  <p>Every <b>PUSH</b> box in this guide means: save your files, then run these three commands in the VS Code terminal, changing only the message.</p>
+  <p>Every <b>PUSH</b> box in this guide means: save your files, then run these three commands in the VS Code terminal. Only the commit message changes, and each PUSH box gives you its exact message. For example, at PUSH 2 you run:</p>
   <div class="code"><div class="code-head"><span class="fname">Terminal · push routine</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git add .
-git commit -m "Phase X: message from the PUSH box"
+# Use the exact message shown in each PUSH box
+git commit -m "Phase 3: create tables"
 git push</code></pre></div>
+  <div class="callout warn"><b class="t">Do not type “Phase X” or copy this example at every checkpoint</b>Your 8 commit messages must match the PUSH boxes exactly (<code>Phase 0: repo setup</code>, <code>Phase 3: create tables</code> … <code>Phase 12: personalisation</code>). They are checked automatically, and a missing or wrong message counts as a missing checkpoint.</div>
   <div class="tablewrap"><table>
     <tr><th>Command</th><th>What it does</th></tr>
     <tr><td><code>git status</code></td><td>Shows changed and new files (red = not added yet, green = added)</td></tr>
@@ -1311,7 +1313,7 @@ git push</code></pre></div>
     <tr><td><code>Authentication failed</code> / <code>403</code> / <code>Permission denied</code></td><td>Not signed in, or pushing to someone else's repo</td><td>Sign in via the Accounts icon in VS Code (Step 0.5), push from the VS Code terminal, and check the repo is yours with <code>git remote -v</code></td></tr>
     <tr><td><code>! [rejected] … (fetch first)</code></td><td>You changed something on the GitHub website</td><td>Run <code>git pull</code>, then <code>git push</code></td></tr>
     <tr><td><code>LF will be replaced by CRLF</code></td><td>Windows line-ending notice</td><td>Harmless, ignore it</td></tr>
-    <tr><td>Wrong commit message</td><td>Typo in <code>-m "…"</code></td><td>Before pushing: <code>git commit --amend -m "Correct message"</code>. After pushing, leave it and ask faculty</td></tr>
+    <tr><td>Wrong commit message (for example <code>Phase X: …</code> copied literally)</td><td>The message is not the one in the PUSH box</td><td>Before pushing: <code>git commit --amend -m "Phase 0: repo setup"</code>. Already pushed: add the correct one with <code>git commit --allow-empty -m "Phase 0: repo setup"</code>, then <code>git push</code>. Use the message of the checkpoint you missed.</td></tr>
     <tr><td>A file is missing on GitHub</td><td>It is outside the repo folder or was not saved</td><td>Move it into <code>cinesuper-&lt;jsoft-id&gt;</code> in VS Code Explorer, save, run the push routine again</td></tr>
   </table></div>
 
