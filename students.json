@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 10:10 AM",
+  "updated": "04 Oct 2026, 05:00 AM",
   "maxMarks": 25,
   "students": [
     {
@@ -80,7 +80,8 @@
       "status": "Completed",
       "commits": 8,
       "live": "https://sanadseydmohamed.github.io/cinesuper-jsoft26094/",
-      "repo": "https://github.com/SANADSEYDMOHAMED/cinesuper-jsoft26094"
+      "repo": "https://github.com/SANADSEYDMOHAMED/cinesuper-jsoft26094",
+      "marks": 25
     },
     {
       "name": "Aswin . A . V",
