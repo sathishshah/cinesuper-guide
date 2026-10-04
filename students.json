@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 07:47 PM IST",
+  "updated": "04 Oct 2026, 08:58 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -132,14 +132,20 @@
     {
       "name": "Advaith Sree P . S",
       "regno": "JSOFT26169",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 7,
+      "live": "https://advaithsreeps3113-code.github.io/cinesuper--jsoft26169-/",
+      "repo": "https://github.com/advaithsreeps3113-code/cinesuper--jsoft26169-",
+      "remarks": "Missing files: database/01_tables.sql · Missing commits: Phase 3"
     },
     {
       "name": "Pavana Premraj",
       "regno": "JSOFT26185",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 0,
+      "live": "https://pavanapremraj.github.io/cinesuper-jsoft26185/",
+      "repo": "https://github.com/pavanapremraj/cinesuper-jsoft26185",
+      "remarks": "Missing files: database/01_tables.sql, database/02_seed.sql, database/03_security.sql, database/04_view.sql … · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
     },
     {
       "name": "Vijay Joy",
