@@ -17,6 +17,7 @@ Nothing private (emails) is written to students.json or printed.
 """
 import base64, csv, json, os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG = json.load(open(os.path.join(ROOT, "tools", "config.json")))
@@ -335,7 +336,7 @@ def main():
                 w.writerow([r["regno"], r["name"], r["email"], r["status"], r["commits"], r["repo"], r["live"], r["detail"]])
 
     students.sort(key=lambda x: x["regno"])
-    out = {"updated": datetime.now(timezone.utc).astimezone().strftime("%d %b %Y, %I:%M %p") if students else "",
+    out = {"updated": datetime.now(ZoneInfo(CONFIG.get("timezone", "Asia/Kolkata"))).strftime("%d %b %Y, %I:%M %p IST") if students else "",
            "maxMarks": CONFIG.get("maxMarks", 25), "students": students}
     old = {}
     try:
