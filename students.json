@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 07:42 PM IST",
+  "updated": "04 Oct 2026, 07:44 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -33,7 +33,7 @@
       "commits": 8,
       "live": "https://anetmaria-011.github.io/cinesuper-jsoft26029/",
       "repo": "https://github.com/anetmaria-011/cinesuper-jsoft26029",
-      "remarks": "Missing files: screenshots/ · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · Only 10 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable"
+      "remarks": "Missing files: screenshots/ (with images) · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · Only 10 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable"
     },
     {
       "name": "Jiya Mariam John",
@@ -67,7 +67,7 @@
       "live": "https://g0dley.github.io/cinesuper--jsoft26085/",
       "repo": "https://github.com/G0DLEY/cinesuper--jsoft26085",
       "marks": 22,
-      "remarks": "Good work. Push the missing commits to complete all checkpoints · Missing files: screenshots/ · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable · Footer still has placeholder text"
+      "remarks": "Good work. Push the missing commits to complete all checkpoints · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable · Footer still has placeholder text"
     },
     {
       "name": "Akhilesh G",
@@ -115,7 +115,7 @@
       "commits": 7,
       "live": "https://sivanyarajeev10-cell.github.io/cinesuper-jsoft26148/",
       "repo": "https://github.com/sivanyarajeev10-cell/cinesuper-jsoft26148",
-      "remarks": "Missing files: app.js, database/01_tables.sql, database/02_seed.sql, screenshots/ · Missing commits: Phase 3 · Live site not loading (HTTP 404)"
+      "remarks": "Missing files: app.js, database/01_tables.sql, database/02_seed.sql, screenshots/ (with images) · Missing commits: Phase 3 · Live site not loading (HTTP 404)"
     },
     {
       "name": "Mohammed Nahid",
@@ -323,11 +323,10 @@
     {
       "name": "Aamin Binu",
       "regno": "JSOFT26429",
-      "status": "Incomplete",
-      "commits": 7,
+      "status": "Completed",
+      "commits": 8,
       "live": "https://aaminbinu.github.io/cinesuper-jsoft26429/",
-      "repo": "https://github.com/aaminbinu/cinesuper-jsoft26429",
-      "remarks": "Missing commits: Phase 11"
+      "repo": "https://github.com/aaminbinu/cinesuper-jsoft26429"
     },
     {
       "name": "Muhammed Farhan P P",
