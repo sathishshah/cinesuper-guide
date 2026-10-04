@@ -152,7 +152,8 @@ def validate(s, deadline):
     regno = re.sub(r"\s+", "", s.get("regno", "")).upper()
     expected_repo = "cinesuper-" + regno.lower()
     problems, warnings = [], []
-    result = {"name": s.get("name", "").strip(), "regno": regno, "email": s.get("email", ""), "repo": "",
+    result = {"name": s.get("name", "").strip(), "regno": regno, "email": s.get("email", ""),
+              "submitted_at": s.get("submitted_at", ""), "repo": "",
               "live": "", "commits": 0, "supabase": None, "private": []}
 
     # Repo URL
@@ -310,7 +311,7 @@ def main():
         r["status"], r["detail"] = status, detail
         public = "; ".join(r["problems"] + r["warnings"]) or "all checks passed"
         # Actions logs are public: print only what students.json already shows
-        print(f"{r['regno']:<12} {status:<13} commits {r['commits']}/8  {public if os.environ.get('GITHUB_ACTIONS') else detail}")
+        print(f"{r['regno']:<12} {status:<13} commits {r['commits']}/8  submitted {r['submitted_at'] or '-'}  {public if os.environ.get('GITHUB_ACTIONS') else detail}")
 
     # Roster students who never submitted
     rpath = os.path.join(ROOT, "roster.csv")
