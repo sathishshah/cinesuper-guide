@@ -308,7 +308,8 @@ def main():
                  "live": r["live"], "repo": r["repo"]}
         if mk.get("marks", "").strip():
             entry["marks"] = float(mk["marks"]) if "." in mk["marks"] else int(mk["marks"])
-        remarks = mk.get("remarks", "").strip() or " · ".join(r["problems"] + r["warnings"])
+        # Faculty remark first, then anything still failing so the student knows what to fix
+        remarks = " · ".join(x for x in [mk.get("remarks", "").strip()] + r["problems"] + r["warnings"] if x)
         if remarks:
             entry["remarks"] = remarks
         students.append(entry)
