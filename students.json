@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 03:57 PM IST",
+  "updated": "04 Oct 2026, 07:42 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -29,8 +29,11 @@
     {
       "name": "Anet Maria Wilson",
       "regno": "JSOFT26029",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 8,
+      "live": "https://anetmaria-011.github.io/cinesuper-jsoft26029/",
+      "repo": "https://github.com/anetmaria-011/cinesuper-jsoft26029",
+      "remarks": "Missing files: screenshots/ · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · Only 10 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable"
     },
     {
       "name": "Jiya Mariam John",
@@ -60,11 +63,11 @@
       "name": "Alan Godley John",
       "regno": "JSOFT26085",
       "status": "Partially Completed",
-      "commits": 5,
-      "live": "https://g0dley.github.io/cineSuper--Alan-JSOFT26085/",
-      "repo": "https://github.com/G0DLEY/cineSuper--Alan-JSOFT26085",
+      "commits": 8,
+      "live": "https://g0dley.github.io/cinesuper--jsoft26085/",
+      "repo": "https://github.com/G0DLEY/cinesuper--jsoft26085",
       "marks": 22,
-      "remarks": "Good work. Push the missing commits to complete all checkpoints · Missing files: screenshots/ · Missing commits: Phase 0, Phase 4, Phase 8 · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable"
+      "remarks": "Good work. Push the missing commits to complete all checkpoints · Missing files: screenshots/ · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · movie_ratings view missing or not readable · Footer still has placeholder text"
     },
     {
       "name": "Akhilesh G",
@@ -195,8 +198,10 @@
     {
       "name": "Redwan Ali Akbar",
       "regno": "JSOFT26243",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Completed",
+      "commits": 8,
+      "live": "https://redwanaliakbar.github.io/cinesuper-jsoft26243/",
+      "repo": "https://github.com/redwanaliakbar/cinesuper-jsoft26243"
     },
     {
       "name": "Muhammed Minhaaj M N",
@@ -297,8 +302,11 @@
     {
       "name": "Rehan V",
       "regno": "JSOFT26418",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 2,
+      "live": "https://rehan-ai129.github.io/cinesuper-26418/",
+      "repo": "https://github.com/rehan-ai129/cinesuper-26418",
+      "remarks": "Repo name must include your JSOFT ID (e.g. cinesuper-jsoft26418) · Missing files: index.html, style.css, config.js, app.js … · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 12 · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
     },
     {
       "name": "Alen Daniel",
@@ -315,8 +323,11 @@
     {
       "name": "Aamin Binu",
       "regno": "JSOFT26429",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 7,
+      "live": "https://aaminbinu.github.io/cinesuper-jsoft26429/",
+      "repo": "https://github.com/aaminbinu/cinesuper-jsoft26429",
+      "remarks": "Missing commits: Phase 11"
     },
     {
       "name": "Muhammed Farhan P P",
