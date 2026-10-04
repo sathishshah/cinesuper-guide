@@ -263,7 +263,7 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
   const safeUrl = (u) => (/^https:\/\//i.test(u || "") ? u : null);
   const isNum = (v) => typeof v === "number" && isFinite(v);
 
-  let MAX = 25, students = [], filter = "all", sortKey = "regno", sortDir = 1;
+  let MAX = 25, students = [], filter = "all", sortKey = "status", sortDir = 1;
   const $ = (id) => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const fmt = (n) => (Math.round(n * 10) / 10).toString();
