@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 07:44 PM IST",
+  "updated": "04 Oct 2026, 07:46 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -201,7 +201,8 @@
       "status": "Completed",
       "commits": 8,
       "live": "https://redwanaliakbar.github.io/cinesuper-jsoft26243/",
-      "repo": "https://github.com/redwanaliakbar/cinesuper-jsoft26243"
+      "repo": "https://github.com/redwanaliakbar/cinesuper-jsoft26243",
+      "marks": 25
     },
     {
       "name": "Muhammed Minhaaj M N",
@@ -326,7 +327,8 @@
       "status": "Completed",
       "commits": 8,
       "live": "https://aaminbinu.github.io/cinesuper-jsoft26429/",
-      "repo": "https://github.com/aaminbinu/cinesuper-jsoft26429"
+      "repo": "https://github.com/aaminbinu/cinesuper-jsoft26429",
+      "marks": 25
     },
     {
       "name": "Muhammed Farhan P P",
