@@ -12,7 +12,7 @@ For every student (latest submission per register number) it checks:
   database answers with the expected data. It also flags shared repos / Supabase
   projects between students.
 
-Marks come from marks.csv (regno,marks,remarks) entered by faculty.
+Marks come from marks.csv (jsoft,marks,remarks) entered by faculty.
 Nothing private (emails) is written to students.json or printed.
 """
 import base64, csv, json, os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
@@ -104,7 +104,12 @@ def normalise(sub):
         val = answer_text(a)
         if not val:
             continue
-        if "register" in label:
+        if "jsoft" in label:
+            # Dropdown option "Student Name - JSOFT26451"
+            idm = re.search(r"JSOFT\s*\d+", val, re.I)
+            out["regno"] = re.sub(r"\s+", "", idm.group(0)) if idm else ""
+            out.setdefault("name", re.split(r"\s+-\s*", val)[0].strip())
+        elif "register" in label:
             out["regno"] = val
         elif "repository" in label:
             out["repo"] = val
@@ -214,8 +219,8 @@ def validate(s, deadline):
         else:
             low = page_html.lower()
             if regno.lower() not in low:
-                problems.append("Reg no not shown on live site footer")
-            if "<strong>your name</strong>" in low or "<strong>reg no</strong>" in low:
+                problems.append("JSOFT ID not shown on live site footer")
+            if "<strong>your name</strong>" in low or "your jsoft id" in low:
                 warnings.append("Footer still has placeholder text")
             if "config.js" not in low or "supabase" not in low:
                 problems.append("Live site is missing the Supabase or config.js script")
@@ -266,7 +271,7 @@ def main():
     mpath = os.path.join(ROOT, "marks.csv")
     if os.path.exists(mpath):
         for row in csv.DictReader(open(mpath, newline="", encoding="utf-8-sig")):
-            reg = re.sub(r"\s+", "", row.get("regno", "")).upper()
+            reg = re.sub(r"\s+", "", row.get("jsoft") or row.get("regno") or "").upper()
             if reg:
                 marks[reg] = row
 
@@ -311,7 +316,7 @@ def main():
     rpath = os.path.join(ROOT, "roster.csv")
     if os.path.exists(rpath):
         for row in csv.DictReader(open(rpath, newline="", encoding="utf-8-sig")):
-            reg = re.sub(r"\s+", "", row.get("regno", "")).upper()
+            reg = re.sub(r"\s+", "", row.get("jsoft") or row.get("regno") or "").upper()
             if reg and reg not in latest:
                 entry = {"name": row.get("name", "").strip(), "regno": reg, "status": "Not submitted", "commits": 0}
                 mk = marks.get(reg, {})
@@ -324,7 +329,7 @@ def main():
         os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
         with open(os.path.join(ROOT, "data", "report.csv"), "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
-            w.writerow(["regno", "name", "email", "status", "commits", "repo", "live", "details"])
+            w.writerow(["jsoft", "name", "email", "status", "commits", "repo", "live", "details"])
             for r in sorted(results, key=lambda x: x["regno"]):
                 w.writerow([r["regno"], r["name"], r["email"], r["status"], r["commits"], r["repo"], r["live"], r["detail"]])
 

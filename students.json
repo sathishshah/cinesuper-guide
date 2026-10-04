@@ -1,5 +1,324 @@
 {
-  "updated": "",
+  "updated": "04 Oct 2026, 09:46 AM",
   "maxMarks": 25,
-  "students": []
+  "students": [
+    {
+      "name": "Sharon Sara Varghese",
+      "regno": "JSOFT26003",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "V Adheena",
+      "regno": "JSOFT26013",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Abheesh Albert S",
+      "regno": "JSOFT26020",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Shaheem Hasrath P S",
+      "regno": "JSOFT26022",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Anet Maria Wilson",
+      "regno": "JSOFT26029",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Jiya Mariam John",
+      "regno": "JSOFT26030",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Esbin P V",
+      "regno": "JSOFT26061",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Muhammed Shahid P",
+      "regno": "JSOFT26064",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Archana P A",
+      "regno": "JSOFT26065",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Alan Godley John",
+      "regno": "JSOFT26085",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Akhilesh G",
+      "regno": "JSOFT26086",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Abhiram Sabu",
+      "regno": "JSOFT26087",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Sanad Seyd Mohamed",
+      "regno": "JSOFT26094",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Aswin . A . V",
+      "regno": "JSOFT26111",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Amegh Saneesh",
+      "regno": "JSOFT26133",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Joshua Prince K",
+      "regno": "JSOFT26135",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Sivanya Rajeev",
+      "regno": "JSOFT26148",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Mohammed Nahid",
+      "regno": "JSOFT26154",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Edin Liyans Daijan",
+      "regno": "JSOFT26163",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Advaith Sree P . S",
+      "regno": "JSOFT26169",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Pavana Premraj",
+      "regno": "JSOFT26185",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Vijay Joy",
+      "regno": "JSOFT26190",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Anzil Mujeeb P",
+      "regno": "JSOFT26193",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Athul Krishna N S",
+      "regno": "JSOFT26206",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Anumod S Sunil",
+      "regno": "JSOFT26216",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Reuben David",
+      "regno": "JSOFT26218",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Fathoomi S S",
+      "regno": "JSOFT26219",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Arjun",
+      "regno": "JSOFT26230",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Anandhakrishnan K S",
+      "regno": "JSOFT26236",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Aryan KS",
+      "regno": "JSOFT26240",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Redwan Ali Akbar",
+      "regno": "JSOFT26243",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Muhammed Minhaaj M N",
+      "regno": "JSOFT26244",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Shivani Raj K",
+      "regno": "JSOFT26260",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Rifdha Rafeeque",
+      "regno": "JSOFT26262",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Darsheel P",
+      "regno": "JSOFT26290",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Anu Krishnan H",
+      "regno": "JSOFT26314",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Shiv Narayanan",
+      "regno": "JSOFT26326",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Ridhin E",
+      "regno": "JSOFT26329",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Ahammed labeed A P",
+      "regno": "JSOFT26346",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Kamalraj R",
+      "regno": "JSOFT26356",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Amruth Narayana V",
+      "regno": "JSOFT26358",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Althas Shibu",
+      "regno": "JSOFT26374",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Aadhil Muhammed S",
+      "regno": "JSOFT26376",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Akash M",
+      "regno": "JSOFT26378",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Mohammed Shamil B",
+      "regno": "JSOFT26388",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Muhammad. M",
+      "regno": "JSOFT26392",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Shefin Shan Bin Sameer",
+      "regno": "JSOFT26395",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Rehan V",
+      "regno": "JSOFT26418",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Alen Daniel",
+      "regno": "JSOFT26423",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Sreeraj S",
+      "regno": "JSOFT26428",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Aamin Binu",
+      "regno": "JSOFT26429",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Muhammed Farhan P P",
+      "regno": "JSOFT26445",
+      "status": "Not submitted",
+      "commits": 0
+    },
+    {
+      "name": "Aron Philip",
+      "regno": "JSOFT26451",
+      "status": "Not submitted",
+      "commits": 0
+    }
+  ]
 }

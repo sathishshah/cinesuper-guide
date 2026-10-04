@@ -25,12 +25,12 @@ student and republishes `students.json`. Run it any time from **Actions → Upda
 
 | Check | Fails when |
 |---|---|
-| Repo URL | Not `https://github.com/<user>/cinesuper-<regno>` |
+| Repo URL | Not `https://github.com/<user>/cinesuper-<jsoft-id>` (e.g. `cinesuper-jsoft26451`) |
 | Repo | Not found or private |
 | Files | Any of `index.html`, `style.css`, `config.js`, `app.js`, `README.md`, `database/01–06_*.sql`, `screenshots/` missing |
 | Commits | Any of the 8 `Phase N: …` commits missing (commits after `deadline` are not counted) |
 | Live URL | Not `https://<user>.github.io/<repo>/`, does not match the repo, or does not load |
-| Footer | Register number not shown; placeholder text left |
+| Footer | JSOFT ID not shown; placeholder text left |
 | config.js | Missing, placeholder keys, or a secret / service_role key |
 | Supabase | Database not answering, fewer than 18 movies or 7 genres, `movie_ratings` view missing |
 | Copying | Two students share a repo or Supabase project (status becomes **Under review**) |
@@ -39,8 +39,8 @@ Status: **Completed** (all checks pass), **Under review** (passes but flagged), 
 
 ### Faculty files
 
-- `marks.csv` — `regno,marks,remarks`. Add a row after evaluating a student; a faculty remark replaces the automatic remarks. Pushing this file triggers an update.
-- `roster.csv` (optional) — `regno,name` for the whole class, so students who never submit appear as **Not submitted**.
+- `marks.csv` — `jsoft,marks,remarks` (e.g. `JSOFT26451,23,Excellent work`). Add a row after evaluating a student; a faculty remark replaces the automatic remarks. Pushing this file triggers an update.
+- `roster.csv` — `jsoft,name` for the whole class (built from the form's JSOFT dropdown), so students who never submit appear as **Not submitted**. Add new students here and in the form dropdown.
 - `tools/config.json` — form ID, `deadline` (e.g. `"2026-10-11T23:59:00+05:30"`), max marks, minimum movies/genres.
 
 ### Running it locally

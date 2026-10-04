@@ -291,11 +291,11 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
   <div class="callout danger"><b class="t">Compulsory weekend task. No push, no marks.</b>Every student must complete all phases at home over the weekend. There is no lab session for this project, and work that exists only on your laptop or in Supabase is not evaluated.</div>
   <div class="callout"><b class="t">Working on your own</b>Read each step fully before doing it, use <a href="#trouble">Troubleshooting</a> when something breaks, and start on Saturday so you have time to recover from mistakes.</div>
   <ul>
-    <li>Every student has their <b>own</b> Supabase project and their <b>own</b> public GitHub repo named <code>cinesuper-&lt;regno&gt;</code>.</li>
+    <li>Every student has their <b>own</b> Supabase project and their <b>own</b> public GitHub repo named <code>cinesuper-&lt;jsoft-id&gt;</code>.</li>
     <li>Every <b>Push checkpoint</b> in this guide must appear as a separate commit in your repo history (8 in total).</li>
     <li>“Push” means saving a commit with Git and sending it to GitHub from the <b>VS Code terminal</b>. Phase 0 shows how to install Git and VS Code and gives the <a href="#push-routine">push routine</a> you repeat at every checkpoint.</li>
     <li>The live link must load movies from <b>your</b> Supabase project on the evaluation day.</li>
-    <li>The site footer must show your name, register number and Jain School of Future Technology.</li>
+    <li>The site footer must show your name, JSOFT ID and Jain School of Future Technology.</li>
     <li>Copied repos (same data, same history, no personalisation) get zero.</li>
   </ul>
   <p>Use the <b>My push progress</b> panel on the left to tick off each checkpoint as you push it. It is saved in your browser.</p>
@@ -353,10 +353,10 @@ git config --global init.defaultBranch main</code></pre></div></li>
   <h3>Step 0.6 — Create your repository on GitHub</h3>
   <ol class="steps">
     <li>On GitHub click <b>+</b> (top right) → <b>New repository</b>.</li>
-    <li>Name: <code>cinesuper-&lt;your-reg-no&gt;</code>, for example <code>cinesuper-24cs045</code>. All lowercase.</li>
+    <li>Name: <code>cinesuper-&lt;your-jsoft-id&gt;</code>, for example <code>cinesuper-jsoft26451</code>. All lowercase. Your JSOFT ID is the one shown next to your name in the submission form.</li>
     <li>Visibility: <b>Public</b> (GitHub Pages is free only for public repos).</li>
     <li>Tick <b>Add a README file</b>, then click <b>Create repository</b>.</li>
-    <li>On the repo page click the green <b>&lt;&gt; Code</b> button → <b>HTTPS</b> tab → copy the URL. It looks like <code>https://github.com/ravi-cse24/cinesuper-24cs045.git</code></li>
+    <li>On the repo page click the green <b>&lt;&gt; Code</b> button → <b>HTTPS</b> tab → copy the URL. It looks like <code>https://github.com/ravi-cse24/cinesuper-jsoft26451.git</code></li>
   </ol>
 
   <h3>Step 0.7 — Clone the repo to your laptop</h3>
@@ -364,14 +364,14 @@ git config --global init.defaultBranch main</code></pre></div></li>
   <ol class="steps">
     <li>In the VS Code terminal, go to your Documents folder and clone. Paste <b>your</b> URL from Step 0.6 (right-click in the terminal to paste).
       <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">cd ~/Documents
-git clone https://github.com/YOUR-USERNAME/cinesuper-YOUR-REGNO.git</code></pre></div>
+git clone https://github.com/YOUR-USERNAME/cinesuper-YOUR-JSOFT-ID.git</code></pre></div>
       You should see <code>Cloning into 'cinesuper-…'… done.</code></li>
-    <li>Open the folder in VS Code: <b>File → Open Folder…</b> → <b>Documents</b> → <b>cinesuper-&lt;regno&gt;</b> → <b>Select Folder</b> / <b>Open</b>. If asked “Do you trust the authors?”, click <b>Yes, I trust the authors</b>.</li>
+    <li>Open the folder in VS Code: <b>File → Open Folder…</b> → <b>Documents</b> → <b>cinesuper-&lt;jsoft-id&gt;</b> → <b>Select Folder</b> / <b>Open</b>. If asked “Do you trust the authors?”, click <b>Yes, I trust the authors</b>.</li>
     <li>Open a fresh terminal (<b>Terminal → New Terminal</b>). It now starts inside your repo. Check it:
       <div class="code"><div class="code-head"><span class="fname">Terminal</span><button class="copy" type="button">Copy</button></div><pre><code class="language-bash">git status</code></pre></div>
       It should say <code>On branch main</code> and <code>Your branch is up to date with 'origin/main'</code>.</li>
   </ol>
-  <div class="callout danger"><b class="t">Always work inside this folder</b>Every file in this project goes inside <code>cinesuper-&lt;regno&gt;</code>. Every Git command is run from a terminal opened in this folder. If Git says <code>not a git repository</code>, you are in the wrong folder.</div>
+  <div class="callout danger"><b class="t">Always work inside this folder</b>Every file in this project goes inside <code>cinesuper-&lt;jsoft-id&gt;</code>. Every Git command is run from a terminal opened in this folder. If Git says <code>not a git repository</code>, you are in the wrong folder.</div>
 
   <h3>Step 0.8 — How to create files and folders in VS Code</h3>
   <ol class="steps">
@@ -381,7 +381,7 @@ git clone https://github.com/YOUR-USERNAME/cinesuper-YOUR-REGNO.git</code></pre>
     <li>To add screenshots, save or drag the image files into the <code>screenshots</code> folder in the Explorer.</li>
   </ol>
   <p>By the end of the project your folder will look like this:</p>
-  <div class="code"><div class="code-head"><span class="fname">Repository structure</span><button class="copy" type="button">Copy</button></div><pre><code class="language-plaintext">cinesuper-&lt;regno&gt;/
+  <div class="code"><div class="code-head"><span class="fname">Repository structure</span><button class="copy" type="button">Copy</button></div><pre><code class="language-plaintext">cinesuper-&lt;jsoft-id&gt;/
 ├── README.md
 ├── index.html
 ├── style.css
@@ -429,7 +429,7 @@ git push</code></pre></div>
     <li>On the Supabase dashboard click <b>New project</b>. If asked, create an <b>Organization</b> with your name on the Free plan.</li>
     <li>Fill in:
       <ul>
-        <li>Project name: <code>cinesuper-&lt;your-reg-no&gt;</code></li>
+        <li>Project name: <code>cinesuper-&lt;your-jsoft-id&gt;</code></li>
         <li>Database password: <b>Generate a password</b>, copy and save it in a notepad file</li>
         <li>Region: the one closest to India (Mumbai / South Asia if listed)</li>
       </ul></li>
@@ -754,12 +754,12 @@ git push</code></pre></div>
 <section class="block" id="p8">
   <span class="phase-tag">Phase 8</span>
   <h2>Build the frontend</h2>
-  <p class="intro">In VS Code, with your <code>cinesuper-&lt;regno&gt;</code> repo folder open, create these four files at the <b>top level</b> of the folder (next to <code>README.md</code>). Names are case-sensitive.</p>
+  <p class="intro">In VS Code, with your <code>cinesuper-&lt;jsoft-id&gt;</code> repo folder open, create these four files at the <b>top level</b> of the folder (next to <code>README.md</code>). Names are case-sensitive.</p>
   <h3>Step 8.1 — config.js (your own keys)</h3>
   <div class="code"><div class="code-head"><span class="fname">config.js</span><button class="copy" type="button">Copy</button></div><pre><code class="language-javascript">// Replace both values with YOUR Supabase details from Phase 7
 const SUPABASE_URL = &quot;https://YOUR-PROJECT-ID.supabase.co&quot;;
 const SUPABASE_KEY = &quot;YOUR-PUBLISHABLE-OR-ANON-KEY&quot;;</code></pre></div>
-  <h3>Step 8.2 — index.html (edit the footer with your name and reg no)</h3>
+  <h3>Step 8.2 — index.html (edit the footer with your name and JSOFT ID)</h3>
   <div class="code"><div class="code-head"><span class="fname">index.html</span><button class="copy" type="button">Copy</button></div><pre><code class="language-xml">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -813,7 +813,7 @@ const SUPABASE_KEY = &quot;YOUR-PUBLISHABLE-OR-ANON-KEY&quot;;</code></pre></div
   &lt;/div&gt;
 
   &lt;footer&gt;
-    &lt;p&gt;Built by &lt;strong&gt;YOUR NAME&lt;/strong&gt; · Reg No: &lt;strong&gt;REG NO&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;Built by &lt;strong&gt;YOUR NAME&lt;/strong&gt; · JSOFT ID: &lt;strong&gt;YOUR JSOFT ID&lt;/strong&gt;&lt;/p&gt;
     &lt;p&gt;Jain School of Future Technology · Faculty: Sathish Kumar M&lt;/p&gt;
     &lt;p class=&quot;powered&quot;&gt;Powered by Supabase&lt;/p&gt;
   &lt;/footer&gt;
@@ -1119,7 +1119,7 @@ git push</code></pre></div>
     <li>In your repo, open <b>Settings</b> → <b>Pages</b> (left sidebar).</li>
     <li>Under <b>Build and deployment → Source</b>, choose <b>Deploy from a branch</b>.</li>
     <li>Branch: <b>main</b>, folder: <b>/ (root)</b> → <b>Save</b>.</li>
-    <li>Wait 1 to 3 minutes and refresh. GitHub shows your live link: <code>https://YOUR-USERNAME.github.io/cinesuper-YOUR-REGNO/</code></li>
+    <li>Wait 1 to 3 minutes and refresh. GitHub shows your live link: <code>https://YOUR-USERNAME.github.io/cinesuper-YOUR-JSOFT-ID/</code></li>
     <li>Open the link on your phone and submit one review from the phone.</li>
   </ol>
   <div class="callout ok"><b class="t">Checkpoint</b>Movies load on the live link, and the phone review appears in Supabase.</div>
@@ -1131,9 +1131,9 @@ git push</code></pre></div>
   <p class="intro">Open <code>README.md</code> in VS Code, replace everything with this, fill in your details and save.</p>
   <div class="code"><div class="code-head"><span class="fname">README.md</span><button class="copy" type="button">Copy</button></div><pre><code class="language-markdown"># 🎬 CineSuper — Mini OTT Movie Database
 
-**Live Demo:** https://YOUR-USERNAME.github.io/cinesuper-YOUR-REGNO/
+**Live Demo:** https://YOUR-USERNAME.github.io/cinesuper-YOUR-JSOFT-ID/
 
-**Student:** YOUR NAME | **Reg No:** REG NO
+**Student:** YOUR NAME | **JSOFT ID:** YOUR JSOFT ID
 **Institution:** Jain School of Future Technology
 **Course:** Database Management Systems | **Faculty:** Sathish Kumar M
 
@@ -1227,7 +1227,7 @@ git push</code></pre></div>
     <tr><td>4</td><td><code>Phase 5: RLS policies</code></td><td>database/03_security.sql + policies screenshot</td></tr>
     <tr><td>5</td><td><code>Phase 6: view and queries</code></td><td>04_view.sql, 05_queries.sql + query screenshots</td></tr>
     <tr><td>6</td><td><code>Phase 8: frontend</code></td><td>index.html, style.css, config.js, app.js</td></tr>
-    <tr><td>7</td><td><code>Phase 11: README and live link</code></td><td>README with live link, name, reg no</td></tr>
+    <tr><td>7</td><td><code>Phase 11: README and live link</code></td><td>README with live link, name, JSOFT ID</td></tr>
     <tr><td>8</td><td><code>Phase 12: personalisation</code></td><td>06_personalisation.sql + updated frontend + screenshots</td></tr>
   </table></div>
   <h3>Deadlines</h3>
@@ -1241,7 +1241,7 @@ git push</code></pre></div>
     <li>Open the repo's commit history: 8 phase commits present.</li>
     <li>Open the live link, add a test review, confirm it appears.</li>
     <li>Student shows that review in their own Supabase Table Editor.</li>
-    <li>Footer shows name, reg no and Jain School of Future Technology.</li>
+    <li>Footer shows name, JSOFT ID and Jain School of Future Technology.</li>
     <li>The Phase 12 column and feature are visible on the site.</li>
   </ol>
 </section>
@@ -1251,17 +1251,17 @@ git push</code></pre></div>
   <h2>Submission checklist</h2>
   <ul class="checklist">
     <li>Live GitHub Pages link</li>
-    <li>GitHub repo link (<code>cinesuper-&lt;regno&gt;</code>, public)</li>
+    <li>GitHub repo link (<code>cinesuper-&lt;jsoft-id&gt;</code>, public)</li>
     <li>All 8 checkpoint commits in the history</li>
     <li>All SQL scripts in <code>database/</code></li>
     <li>Screenshots in <code>screenshots/</code>: tables, RLS policies, Q1–Q8, Part B, new movies, new column, extra feature</li>
     <li>ER diagram including your new column, uploaded to <code>screenshots/</code></li>
-    <li>README filled with name, reg no, live link and personalisation</li>
+    <li>README filled with name, JSOFT ID, live link and personalisation</li>
   </ul>
   <h3>Submit your project</h3>
-  <p>When everything above is ready, submit your repo link and live link in the submission form. Submit only once; if you must correct something, submit again with the same register number and the latest entry is used.</p>
+  <p>When everything above is ready, submit your repo link and live link in the submission form. Submit only once; if you must correct something, submit again choosing the same name and JSOFT ID and the latest entry is used.</p>
   <p><a class="submit-btn" href="https://form.jotform.com/262758737111057" target="_blank" rel="noopener">📝 Open the submission form ↗</a></p>
-  <div class="callout"><b class="t">Automatic checking</b>Every 30 minutes your submission is checked automatically: repo name, the 8 phase commits, required files, the live link, your reg no in the footer, and that your site's Supabase database has your 18+ movies. Results and marks appear on the <a href="status.html">Task Status</a> page. If it shows <b>Incomplete</b>, fix the listed problems, push, and the status updates on the next check.</div>
+  <div class="callout"><b class="t">Automatic checking</b>Every 30 minutes your submission is checked automatically: repo name, the 8 phase commits, required files, the live link, your JSOFT ID in the footer, and that your site's Supabase database has your 18+ movies. Results and marks appear on the <a href="status.html">Task Status</a> page. If it shows <b>Incomplete</b>, fix the listed problems, push, and the status updates on the next check.</div>
 </section>
 
 <section class="block" id="rubric">
@@ -1306,13 +1306,13 @@ git push</code></pre></div>
     <tr><th>Message or problem</th><th>Likely cause</th><th>Fix</th></tr>
     <tr><td><code>'git' is not recognized</code> / <code>command not found: git</code></td><td>Git not installed, or VS Code opened before installing it</td><td>Install Git (Step 0.4), close all VS Code windows and open again</td></tr>
     <tr><td><code>Please tell me who you are</code></td><td>Name and email not set</td><td>Run the two <code>git config --global</code> lines from Step 0.5</td></tr>
-    <tr><td><code>fatal: not a git repository</code></td><td>Terminal is not in your repo folder</td><td><b>File → Open Folder</b> → your <code>cinesuper-&lt;regno&gt;</code> folder, then <b>Terminal → New Terminal</b></td></tr>
+    <tr><td><code>fatal: not a git repository</code></td><td>Terminal is not in your repo folder</td><td><b>File → Open Folder</b> → your <code>cinesuper-&lt;jsoft-id&gt;</code> folder, then <b>Terminal → New Terminal</b></td></tr>
     <tr><td><code>nothing to commit, working tree clean</code></td><td>Files not saved, or already committed</td><td>Save with <code>Ctrl + S</code> (no <b>●</b> on tabs) and check <code>git status</code>; if already committed, just <code>git push</code></td></tr>
     <tr><td><code>Authentication failed</code> / <code>403</code> / <code>Permission denied</code></td><td>Not signed in, or pushing to someone else's repo</td><td>Sign in via the Accounts icon in VS Code (Step 0.5), push from the VS Code terminal, and check the repo is yours with <code>git remote -v</code></td></tr>
     <tr><td><code>! [rejected] … (fetch first)</code></td><td>You changed something on the GitHub website</td><td>Run <code>git pull</code>, then <code>git push</code></td></tr>
     <tr><td><code>LF will be replaced by CRLF</code></td><td>Windows line-ending notice</td><td>Harmless, ignore it</td></tr>
     <tr><td>Wrong commit message</td><td>Typo in <code>-m "…"</code></td><td>Before pushing: <code>git commit --amend -m "Correct message"</code>. After pushing, leave it and ask faculty</td></tr>
-    <tr><td>A file is missing on GitHub</td><td>It is outside the repo folder or was not saved</td><td>Move it into <code>cinesuper-&lt;regno&gt;</code> in VS Code Explorer, save, run the push routine again</td></tr>
+    <tr><td>A file is missing on GitHub</td><td>It is outside the repo folder or was not saved</td><td>Move it into <code>cinesuper-&lt;jsoft-id&gt;</code> in VS Code Explorer, save, run the push routine again</td></tr>
   </table></div>
 
   <h3>Start over cleanly</h3>
