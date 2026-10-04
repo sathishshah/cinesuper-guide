@@ -39,7 +39,7 @@ Status: **Completed** (all checks pass), **Under review** (passes but flagged), 
 
 ### Faculty files
 
-- `marks.csv` — `jsoft,marks,remarks` (e.g. `JSOFT26451,23,Excellent work`). Add a row after evaluating a student; a faculty remark replaces the automatic remarks. Pushing this file triggers an update.
+- `marks.csv` — `jsoft,marks,status,remarks` (e.g. `JSOFT26451,23,,Excellent work`). Leave `status` empty to use the automatic status, or set it to override (e.g. `Partially Completed`, which counts as done). Add a row after evaluating a student; a faculty remark replaces the automatic remarks. Pushing this file triggers an update.
 - `roster.csv` — `jsoft,name` for the whole class (built from the form's JSOFT dropdown), so students who never submit appear as **Not submitted**. Add new students here and in the form dropdown.
 - `tools/config.json` — form ID, `deadline` (e.g. `"2026-10-11T23:59:00+05:30"`), max marks, minimum movies/genres.
 

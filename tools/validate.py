@@ -12,7 +12,7 @@ For every student (latest submission per register number) it checks:
   database answers with the expected data. It also flags shared repos / Supabase
   projects between students.
 
-Marks come from marks.csv (jsoft,marks,remarks) entered by faculty.
+Marks come from marks.csv (jsoft,marks,status,remarks); status optionally overrides the automatic one entered by faculty.
 Nothing private (emails) is written to students.json or printed.
 """
 import base64, csv, json, os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
@@ -304,6 +304,8 @@ def main():
         else:
             status = "Completed"
         mk = marks.get(r["regno"], {})
+        if (mk.get("status") or "").strip():  # faculty override, e.g. "Partially Completed"
+            status = mk["status"].strip()
         entry = {"name": r["name"], "regno": r["regno"], "status": status, "commits": r["commits"],
                  "live": r["live"], "repo": r["repo"]}
         if mk.get("marks", "").strip():
