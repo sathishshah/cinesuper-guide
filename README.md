@@ -2,39 +2,53 @@
 
 - Guide: https://sathishshah.github.io/cinesuper-guide/
 - Task status: https://sathishshah.github.io/cinesuper-guide/status.html
+- Submission form (Jotform): https://form.jotform.com/262758737111057
 
-## Updating the Task Status page
+## How the Task Status page is updated
 
-Edit `students.json` (on GitHub: open the file → pencil icon → Commit changes). The site updates in 1 to 2 minutes.
-
-```json
-{
-  "updated": "6 Oct 2026",
-  "maxMarks": 25,
-  "students": [
-    {
-      "name": "Ravi Kumar",
-      "regno": "24CS045",
-      "status": "Completed",
-      "commits": 8,
-      "marks": 23,
-      "live": "https://ravi-cse24.github.io/cinesuper-24cs045/",
-      "repo": "https://github.com/ravi-cse24/cinesuper-24cs045",
-      "remarks": "Excellent watchlist feature"
-    }
-  ]
-}
+```
+Student submits Jotform ─► GitHub Action (every 30 min) ─► tools/validate.py ─► students.json ─► status.html
+                                         marks.csv / roster.csv ─┘
 ```
 
-| Field | Required | Notes |
-|---|---|---|
-| `name` | yes | Student's name |
-| `regno` | yes | Register number; default sort order |
-| `status` | yes | `Completed`, `Under review`, `Incomplete` or `Not submitted` |
-| `commits` | no | Number of checkpoint commits found (0–8) |
-| `marks` | no | Leave out (or `null`) until awarded; decimals allowed |
-| `live`, `repo` | no | Must start with `https://`, otherwise hidden |
-| `remarks` | no | Short note shown in the table |
+The Action `.github/workflows/update-status.yml` pulls submissions from Jotform, validates every
+student and republishes `students.json`. Run it any time from **Actions → Update task status → Run workflow**.
 
-- Separate students with commas; the file must stay valid JSON (check at https://jsonlint.com if the page shows no students).
-- `updated` is shown as "Last updated" under the heading.
+### One-time setup: Jotform API key
+
+1. Jotform → **My Account → API** (https://www.jotform.com/myaccount/api) → **Create New Key**, permission **Read Access**.
+2. Add it as a repository secret named `JOTFORM_API_KEY`:
+   - GitHub: repo **Settings → Secrets and variables → Actions → New repository secret**, or
+   - Terminal: `gh secret set JOTFORM_API_KEY --repo sathishshah/cinesuper-guide`
+
+### What is checked automatically
+
+| Check | Fails when |
+|---|---|
+| Repo URL | Not `https://github.com/<user>/cinesuper-<regno>` |
+| Repo | Not found or private |
+| Files | Any of `index.html`, `style.css`, `config.js`, `app.js`, `README.md`, `database/01–06_*.sql`, `screenshots/` missing |
+| Commits | Any of the 8 `Phase N: …` commits missing (commits after `deadline` are not counted) |
+| Live URL | Not `https://<user>.github.io/<repo>/`, does not match the repo, or does not load |
+| Footer | Register number not shown; placeholder text left |
+| config.js | Missing, placeholder keys, or a secret / service_role key |
+| Supabase | Database not answering, fewer than 18 movies or 7 genres, `movie_ratings` view missing |
+| Copying | Two students share a repo or Supabase project (status becomes **Under review**) |
+
+Status: **Completed** (all checks pass), **Under review** (passes but flagged), **Incomplete** (problems listed in Remarks), **Not submitted** (in `roster.csv` but no submission).
+
+### Faculty files
+
+- `marks.csv` — `regno,marks,remarks`. Add a row after evaluating a student; a faculty remark replaces the automatic remarks. Pushing this file triggers an update.
+- `roster.csv` (optional) — `regno,name` for the whole class, so students who never submit appear as **Not submitted**.
+- `tools/config.json` — form ID, `deadline` (e.g. `"2026-10-11T23:59:00+05:30"`), max marks, minimum movies/genres.
+
+### Running it locally
+
+```bash
+JOTFORM_API_KEY=xxxx python3 tools/validate.py
+```
+
+Run locally, it also writes `data/report.csv` with emails and full details (which students share a
+repo, exposed secret keys). `data/` is git-ignored: never commit it. Public logs and `students.json`
+never contain emails or names of suspected copies.

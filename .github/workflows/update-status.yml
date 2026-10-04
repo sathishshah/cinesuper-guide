@@ -1,0 +1,52 @@
+name: Update task status
+
+# Pulls Jotform submissions, validates every student's repo, live site and
+# Supabase database, merges marks.csv, and republishes students.json.
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes
+  workflow_dispatch:          # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths: [marks.csv, roster.csv, tools/**]
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-status
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate submissions
+        env:
+          JOTFORM_API_KEY: ${{ secrets.JOTFORM_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$JOTFORM_API_KEY" ]; then
+            echo "::warning::Add the JOTFORM_API_KEY repository secret to enable automatic updates."
+            exit 0
+          fi
+          python tools/validate.py
+
+      - name: Publish students.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- students.json; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add students.json
+          git commit -m "Update task status"
+          git push
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true

@@ -40,6 +40,10 @@ a{color:var(--accent-2)}
 .eyebrow{color:var(--accent-2);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.76rem}
 h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1;margin:8px 0 10px;letter-spacing:-.03em}
 .lead{color:var(--muted);margin:0;max-width:680px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.submit-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:12px;box-shadow:var(--shadow)}
+.submit-btn:hover{filter:brightness(1.1)}
+.hint{color:var(--muted);font-size:.84rem}
 .updated{color:var(--muted);font-size:.82rem;margin-top:10px}
 
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}
@@ -154,8 +158,12 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
   <div class="wrap">
     <div class="eyebrow">Database Management Systems · Compulsory Weekend Task</div>
     <h1>Task completion status</h1>
-    <p class="lead">Verified status, live CineSuper links and marks awarded out of <span id="maxLead">25</span>. Marks appear once evaluation is complete.</p>
+    <p class="lead">Submissions are checked automatically for the repo, the 8 commits, the live link and the Supabase data. Marks are awarded out of <span id="maxLead">25</span>. Marks appear once evaluation is complete.</p>
     <div class="updated" id="updated"></div>
+    <div class="hero-actions">
+      <a class="submit-btn" href="https://form.jotform.com/262758737111057" target="_blank" rel="noopener">📝 Submit your project ↗</a>
+      <span class="hint">Checked automatically every 30 minutes</span>
+    </div>
     <div class="stats">
       <div class="stat"><small>Students listed</small><b id="stTotal">–</b></div>
       <div class="stat"><small>Completed</small><b id="stDone">–</b><div class="meter"><i id="stDoneBar"></i></div></div>
@@ -189,7 +197,7 @@ iframe.skiptranslate,.skiptranslate>iframe,.goog-te-banner-frame,#goog-gt-tt,.go
       </table>
       <div class="empty" id="empty" hidden></div>
     </div>
-    <p class="note">Something wrong with your entry? Tell your faculty in the next class. Only verified submissions are listed.</p>
+    <p class="note"><b>Incomplete?</b> Fix the problems listed in Remarks, push to GitHub, and wait for the next automatic check. You do not need to submit the form again unless your links changed. Marks are added by faculty after evaluation.</p>
   </div>
 </main>
 

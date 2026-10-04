@@ -1,0 +1,3 @@
+# Raw Jotform exports contain student emails; never commit them
+data/
+__pycache__/
