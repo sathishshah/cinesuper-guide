@@ -1,5 +1,5 @@
 {
-  "updated": "05 Oct 2026, 09:49 PM IST",
+  "updated": "05 Oct 2026, 09:52 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -14,8 +14,8 @@
       "status": "Incomplete",
       "commits": 0,
       "live": "https://adheenavinod28-a11y.github.io/cinesuper-jsoft26013/",
-      "repo": "",
-      "remarks": "Repo URL is not https://github.com/<user>/<repo>"
+      "repo": "https://github.com/adheenavinod28-a11y/cinesuper-jsoft26013",
+      "remarks": "Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Abheesh Albert S",
@@ -114,11 +114,12 @@
     {
       "name": "Sivanya Rajeev",
       "regno": "JSOFT26148",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 8,
       "live": "https://sivanyarajeev10-cell.github.io/cinesuper-jsoft26148/",
       "repo": "https://github.com/sivanyarajeev10-cell/cinesuper-jsoft26148",
-      "remarks": "Only 13 movies; need 18 (13 sample + 5 own)"
+      "marks": 23,
+      "remarks": "Good work. Add your 5 own movies (Phase 12.1) to complete · Only 13 movies; need 18 (13 sample + 5 own)"
     },
     {
       "name": "Mohammed Nahid",
@@ -135,12 +136,11 @@
     {
       "name": "Advaith Sree P . S",
       "regno": "JSOFT26169",
-      "status": "Partially Completed",
+      "status": "Completed",
       "commits": 8,
       "live": "https://advaithsreeps3113-code.github.io/cinesuper--jsoft26169-/",
       "repo": "https://github.com/advaithsreeps3113-code/cinesuper--jsoft26169-",
-      "marks": 24,
-      "remarks": "Very good work. Rename database/01_tables.sq1 to 01_tables.sql and add the Phase 3 commit"
+      "marks": 25
     },
     {
       "name": "Pavana Premraj",
@@ -160,11 +160,11 @@
     {
       "name": "Anzil Mujeeb P",
       "regno": "JSOFT26193",
-      "status": "Incomplete",
+      "status": "Completed",
       "commits": 8,
       "live": "https://anzilmujeeb07-sys.github.io/cinesuper-jsoft26193/",
       "repo": "https://github.com/anzilmujeeb07-sys/cinesuper-jsoft26193",
-      "remarks": "config.js not found on live site"
+      "marks": 25
     },
     {
       "name": "Athul Krishna N S",
@@ -301,7 +301,8 @@
       "status": "Completed",
       "commits": 8,
       "live": "https://shamilbshamilb-a11y.github.io/cinesuper-jsoft26388/",
-      "repo": "https://github.com/shamilbshamilb-a11y/cinesuper-jsoft26388"
+      "repo": "https://github.com/shamilbshamilb-a11y/cinesuper-jsoft26388",
+      "marks": 25
     },
     {
       "name": "Muhammad. M",
@@ -318,11 +319,11 @@
     {
       "name": "Rehan V",
       "regno": "JSOFT26418",
-      "status": "Incomplete",
+      "status": "Completed",
       "commits": 8,
       "live": "https://rehan-ai129.github.io/cinesuper-26418/",
       "repo": "https://github.com/rehan-ai129/cinesuper-26418",
-      "remarks": "Repo name must include your JSOFT ID (e.g. cinesuper-jsoft26418) · JSOFT ID not shown on live site footer"
+      "marks": 25
     },
     {
       "name": "Alen Daniel",
