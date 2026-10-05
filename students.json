@@ -1,5 +1,5 @@
 {
-  "updated": "05 Oct 2026, 10:19 PM IST",
+  "updated": "06 Oct 2026, 04:22 AM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -16,7 +16,7 @@
       "live": "https://adheenavinod28-a11y.github.io/cinesuper-jsoft26013/",
       "repo": "https://github.com/adheenavinod28-a11y/cinesuper-jsoft26013",
       "marks": 23,
-      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · Repo link in the form was invalid; used the one from the live link"
+      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12"
     },
     {
       "name": "Abheesh Albert S",
@@ -27,8 +27,11 @@
     {
       "name": "Shaheem Hasrath P S",
       "regno": "JSOFT26022",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 5,
+      "live": "https://shaheemhasrath7-tech.github.io/cinesuper-jsoft26022/",
+      "repo": "https://github.com/shaheemhasrath7-tech/cinesuper-jsoft26022",
+      "remarks": "Missing files: database/01_tables.sql, database/03_security.sql, database/04_view.sql, database/05_queries.sql … · Missing commits: Phase 0, Phase 6, Phase 11 · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · Footer still has placeholder text"
     },
     {
       "name": "Anet Maria Wilson",
@@ -54,8 +57,10 @@
     {
       "name": "Muhammed Shahid P",
       "regno": "JSOFT26064",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Completed",
+      "commits": 8,
+      "live": "https://muhammed-shahid.github.io/cinesuper-jsoft26064/",
+      "repo": "https://github.com/muhammed-shahid/cinesuper-jsoft26064"
     },
     {
       "name": "Archana P A",
@@ -97,8 +102,11 @@
     {
       "name": "Aswin . A . V",
       "regno": "JSOFT26111",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 4,
+      "live": "https://aswin859.github.io/cinesuper-JSOFT26111/",
+      "repo": "https://github.com/Aswin859/cinesuper-JSOFT26111",
+      "remarks": "Missing commits: Phase 3, Phase 4, Phase 5, Phase 11 · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · Footer still has placeholder text"
     },
     {
       "name": "Amegh Saneesh",
@@ -147,10 +155,10 @@
       "name": "Pavana Premraj",
       "regno": "JSOFT26185",
       "status": "Incomplete",
-      "commits": 0,
+      "commits": 7,
       "live": "https://pavanapremraj.github.io/cinesuper-jsoft26185/",
       "repo": "https://github.com/pavanapremraj/cinesuper-jsoft26185",
-      "remarks": "Missing files: database/01_tables.sql, database/02_seed.sql, database/03_security.sql, database/04_view.sql … · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
+      "remarks": "Missing commits: Phase 0 · Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Vijay Joy",
@@ -170,8 +178,11 @@
     {
       "name": "Athul Krishna N S",
       "regno": "JSOFT26206",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Under review",
+      "commits": 8,
+      "live": "https://nsathulkrishna73-gif.github.io/cinesuper-jsoft26206/",
+      "repo": "https://github.com/nsathulkrishna73-gif/cinesuper-jsoft26206",
+      "remarks": "Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Anumod S Sunil",
@@ -205,7 +216,7 @@
       "live": "https://anandhakrishnanks408-cloud.github.io/cinesuper-jsoft26236/",
       "repo": "https://github.com/Anandhakrishnanks408-cloud/cinesuper-jsoft26236",
       "marks": 21,
-      "remarks": "Working prototype. Phase 12 personalisation missing (no 06_personalisation.sql or own movies) and footer has no name/JSOFT ID · Missing files: config.js, database/06_personalisation.sql · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
+      "remarks": "Working prototype. Phase 12 personalisation missing (no 06_personalisation.sql or own movies) and footer has no name/JSOFT ID · JSOFT ID not shown on live site footer · Only 16 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre"
     },
     {
       "name": "Aryan KS",
@@ -237,8 +248,10 @@
     {
       "name": "Rifdha Rafeeque",
       "regno": "JSOFT26262",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Completed",
+      "commits": 8,
+      "live": "https://rifdharafeeque.github.io/cinesuper-jsoft26262/",
+      "repo": "https://github.com/rifdharafeeque/cinesuper-jsoft26262"
     },
     {
       "name": "Darsheel P",
@@ -273,8 +286,11 @@
     {
       "name": "Kamalraj R",
       "regno": "JSOFT26356",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 0,
+      "live": "https://kamalraj1010.github.io/cinesuper-26356/",
+      "repo": "https://github.com/kamalraj1010/cinesuper-26356",
+      "remarks": "Missing files: index.html, style.css, config.js, app.js … · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · Live site not loading (HTTP 404)"
     },
     {
       "name": "Amruth Narayana V",
@@ -297,8 +313,11 @@
     {
       "name": "Akash M",
       "regno": "JSOFT26378",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 7,
+      "live": "https://akashakz-18.github.io/cinesuper-26378/",
+      "repo": "https://github.com/Akashakz-18/cinesuper-26378",
+      "remarks": "Missing files: database/06_personalisation.sql, screenshots/ (with images) · Missing commits: Phase 12 · Supabase not answering (paused project, wrong key or missing policy)"
     },
     {
       "name": "Mohammed Shamil B",
@@ -360,8 +379,11 @@
     {
       "name": "Aron Philip",
       "regno": "JSOFT26451",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 6,
+      "live": "https://aar0nplp.github.io/cinesuper-jsoft26451/",
+      "repo": "https://github.com/aar0nplp/cinesuper-jsoft26451",
+      "remarks": "Missing commits: Phase 6, Phase 8 · Repo link in the form was invalid; used the one from the live link"
     }
   ]
 }
