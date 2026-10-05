@@ -1,5 +1,5 @@
 {
-  "updated": "05 Oct 2026, 10:17 PM IST",
+  "updated": "05 Oct 2026, 10:19 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -200,11 +200,12 @@
     {
       "name": "Anandhakrishnan K S",
       "regno": "JSOFT26236",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 8,
       "live": "https://anandhakrishnanks408-cloud.github.io/cinesuper-jsoft26236/",
       "repo": "https://github.com/Anandhakrishnanks408-cloud/cinesuper-jsoft26236",
-      "remarks": "Missing files: config.js, database/06_personalisation.sql · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
+      "marks": 21,
+      "remarks": "Working prototype. Phase 12 personalisation missing (no 06_personalisation.sql or own movies) and footer has no name/JSOFT ID · Missing files: config.js, database/06_personalisation.sql · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
     },
     {
       "name": "Aryan KS",
