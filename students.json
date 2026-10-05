@@ -1,5 +1,5 @@
 {
-  "updated": "05 Oct 2026, 10:06 AM IST",
+  "updated": "05 Oct 2026, 01:00 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -133,11 +133,11 @@
       "name": "Advaith Sree P . S",
       "regno": "JSOFT26169",
       "status": "Partially Completed",
-      "commits": 7,
+      "commits": 8,
       "live": "https://advaithsreeps3113-code.github.io/cinesuper--jsoft26169-/",
       "repo": "https://github.com/advaithsreeps3113-code/cinesuper--jsoft26169-",
       "marks": 24,
-      "remarks": "Very good work. Rename database/01_tables.sq1 to 01_tables.sql and add the Phase 3 commit · Missing files: database/01_tables.sql · Missing commits: Phase 3 · config.js not found on live site"
+      "remarks": "Very good work. Rename database/01_tables.sq1 to 01_tables.sql and add the Phase 3 commit"
     },
     {
       "name": "Pavana Premraj",
@@ -157,8 +157,11 @@
     {
       "name": "Anzil Mujeeb P",
       "regno": "JSOFT26193",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 8,
+      "live": "https://anzilmujeeb07-sys.github.io/cinesuper-jsoft26193/",
+      "repo": "https://github.com/anzilmujeeb07-sys/cinesuper-jsoft26193",
+      "remarks": "Missing files: screenshots/ (with images) · config.js not found on live site"
     },
     {
       "name": "Athul Krishna N S",
@@ -311,10 +314,10 @@
       "name": "Rehan V",
       "regno": "JSOFT26418",
       "status": "Incomplete",
-      "commits": 2,
+      "commits": 0,
       "live": "https://rehan-ai129.github.io/cinesuper-26418/",
       "repo": "https://github.com/rehan-ai129/cinesuper-26418",
-      "remarks": "Repo name must include your JSOFT ID (e.g. cinesuper-jsoft26418) · Missing files: index.html, style.css, config.js, app.js … · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 12 · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
+      "remarks": "Repo name must include your JSOFT ID (e.g. cinesuper-jsoft26418) · Missing files: index.html, style.css, config.js, app.js … · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · Live site not loading (HTTP 404)"
     },
     {
       "name": "Alen Daniel",
