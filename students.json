@@ -1,5 +1,5 @@
 {
-  "updated": "04 Oct 2026, 08:58 PM IST",
+  "updated": "05 Oct 2026, 10:06 AM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -132,11 +132,12 @@
     {
       "name": "Advaith Sree P . S",
       "regno": "JSOFT26169",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 7,
       "live": "https://advaithsreeps3113-code.github.io/cinesuper--jsoft26169-/",
       "repo": "https://github.com/advaithsreeps3113-code/cinesuper--jsoft26169-",
-      "remarks": "Missing files: database/01_tables.sql · Missing commits: Phase 3"
+      "marks": 24,
+      "remarks": "Very good work. Rename database/01_tables.sq1 to 01_tables.sql and add the Phase 3 commit · Missing files: database/01_tables.sql · Missing commits: Phase 3 · config.js not found on live site"
     },
     {
       "name": "Pavana Premraj",
