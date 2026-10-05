@@ -158,14 +158,23 @@ def validate(s, deadline):
               "live": "", "commits": 0, "supabase": None, "private": []}
 
     # Repo URL
-    m = re.match(r"^https://github\.com/([A-Za-z0-9-]+)/([A-Za-z0-9._-]+?)(?:\.git)?/?$", s.get("repo", "").strip())
+    idnum = re.sub(r"\D", "", regno)  # "26418" also identifies JSOFT26418
+    repo_url = s.get("repo", "").strip()
+    m = re.match(r"^https://github\.com/([A-Za-z0-9-]+)/([A-Za-z0-9._-]+?)(?:\.git)?/?$", repo_url)
+    if not m:
+        # Broken repo link in the form: work it out from the live link instead
+        lm0 = re.match(r"^https://([A-Za-z0-9-]+)\.github\.io/([A-Za-z0-9._-]+)/?$", s.get("live", "").strip())
+        if lm0:
+            m = re.match(r"^https://github\.com/([A-Za-z0-9-]+)/([A-Za-z0-9._-]+)$",
+                         f"https://github.com/{lm0.group(1)}/{lm0.group(2)}")
+            warnings.append("Repo link in the form was invalid; used the one from the live link")
     owner = repo = None
     if not m:
         problems.append("Repo URL is not https://github.com/<user>/<repo>")
     else:
         owner, repo = m.group(1), m.group(2)
         result["repo"] = f"https://github.com/{owner}/{repo}"
-        if regno.lower() not in repo.lower():
+        if regno.lower() not in repo.lower() and not (idnum and idnum in repo):
             problems.append(f"Repo name must include your JSOFT ID (e.g. {expected_repo})")
         status, info = gh(f"/repos/{owner}/{repo}")
         if status != 200 or not info:
@@ -228,7 +237,7 @@ def validate(s, deadline):
             problems.append(f"Live site not loading (HTTP {status or 'error'})")
         else:
             low = page_html.lower()
-            if regno.lower() not in low:
+            if regno.lower() not in low and not (idnum and idnum in low):
                 problems.append("JSOFT ID not shown on live site footer")
             if "<strong>your name</strong>" in low or "your jsoft id" in low:
                 warnings.append("Footer still has placeholder text")
@@ -236,7 +245,7 @@ def validate(s, deadline):
                 problems.append("Live site is missing the Supabase or config.js script")
             cstatus, _, cfg = http(live + "config.js")
             url_m = re.search(r"SUPABASE_URL\s*=\s*[\"'`]([^\"'`]+)", cfg or "")
-            key_m = re.search(r"SUPABASE_KEY\s*=\s*[\"'`]([^\"'`]+)", cfg or "")
+            key_m = re.search(r"SUPABASE_[A-Z_]*KEY\s*=\s*[\"'`]([^\"'`]+)", cfg or "")
             if cstatus != 200 or not url_m or not key_m:
                 problems.append("config.js not found on live site")
             elif "YOUR-" in url_m.group(1) or "YOUR-" in key_m.group(1):
