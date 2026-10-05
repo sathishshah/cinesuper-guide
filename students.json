@@ -1,5 +1,5 @@
 {
-  "updated": "05 Oct 2026, 09:52 PM IST",
+  "updated": "05 Oct 2026, 10:17 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -11,11 +11,12 @@
     {
       "name": "V Adheena",
       "regno": "JSOFT26013",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 0,
       "live": "https://adheenavinod28-a11y.github.io/cinesuper-jsoft26013/",
       "repo": "https://github.com/adheenavinod28-a11y/cinesuper-jsoft26013",
-      "remarks": "Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · Repo link in the form was invalid; used the one from the live link"
+      "marks": 23,
+      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12 · Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Abheesh Albert S",
@@ -199,8 +200,11 @@
     {
       "name": "Anandhakrishnan K S",
       "regno": "JSOFT26236",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 8,
+      "live": "https://anandhakrishnanks408-cloud.github.io/cinesuper-jsoft26236/",
+      "repo": "https://github.com/Anandhakrishnanks408-cloud/cinesuper-jsoft26236",
+      "remarks": "Missing files: config.js, database/06_personalisation.sql · JSOFT ID not shown on live site footer · Live site is missing the Supabase or config.js script · config.js not found on live site"
     },
     {
       "name": "Aryan KS",
