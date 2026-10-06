@@ -281,11 +281,19 @@ def main():
             deadline = deadline.replace(tzinfo=timezone.utc)
 
     latest, counts = {}, {}
-    for s in load_submissions():
+    valid = {"repo": r"^https://github\.com/[^/\s]+/[^/\s]+", "live": r"^https://[^/\s]+\.github\.io/"}
+    # Oldest first, so later submissions win, but a broken link never replaces a working one
+    for s in sorted(load_submissions(), key=lambda x: x.get("submitted_at", "")):
         reg = re.sub(r"\s+", "", s.get("regno", "")).upper()
+        if not reg:
+            continue
         counts[reg] = counts.get(reg, 0) + 1
-        if reg and (reg not in latest or s.get("submitted_at", "") >= latest[reg].get("submitted_at", "")):
-            latest[reg] = s
+        merged = dict(latest.get(reg, {}))
+        for k, v in s.items():
+            if k in valid and not re.match(valid[k], str(v).strip()) and re.match(valid[k], str(merged.get(k, "")).strip()):
+                continue
+            merged[k] = v
+        latest[reg] = merged
 
     marks = {}
     mpath = os.path.join(ROOT, "marks.csv")
