@@ -1,5 +1,5 @@
 {
-  "updated": "06 Oct 2026, 04:04 PM IST",
+  "updated": "06 Oct 2026, 04:11 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -12,11 +12,11 @@
       "name": "V Adheena",
       "regno": "JSOFT26013",
       "status": "Partially Completed",
-      "commits": 0,
-      "live": "",
-      "repo": "",
+      "commits": 8,
+      "live": "https://adheenavinod28-a11y.github.io/cinesuper-jsoft26013/",
+      "repo": "https://github.com/adheenavinod28-a11y/cinesuper-jsoft26013",
       "marks": 23,
-      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html · Repo URL is not https://github.com/<user>/<repo> · Live URL is not https://<user>.github.io/<repo>/"
+      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html"
     },
     {
       "name": "Abheesh Albert S",
