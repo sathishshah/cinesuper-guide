@@ -1,5 +1,5 @@
 {
-  "updated": "06 Oct 2026, 04:22 AM IST",
+  "updated": "06 Oct 2026, 08:15 AM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -21,8 +21,11 @@
     {
       "name": "Abheesh Albert S",
       "regno": "JSOFT26020",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 2,
+      "live": "",
+      "repo": "https://github.com/abheesh0007-del/cinesuper--Abheesh-Albert.S-JSOFT26020-",
+      "remarks": "Missing files: database/02_seed.sql, database/04_view.sql, database/06_personalisation.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 12 · Live URL is not https://<user>.github.io/<repo>/"
     },
     {
       "name": "Shaheem Hasrath P S",
@@ -117,8 +120,11 @@
     {
       "name": "Joshua Prince K",
       "regno": "JSOFT26135",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 5,
+      "live": "https://joshuapricek1133.github.io/cinesuper-JSOFT26135/",
+      "repo": "https://github.com/joshuaprincek1133/cinesuper-jsoft26135",
+      "remarks": "Missing files: database/04_view.sql, screenshots/ (with images) · Missing commits: Phase 3, Phase 6, Phase 12 · Live URL does not match the repo · Live site not loading (HTTP 404)"
     },
     {
       "name": "Sivanya Rajeev",
