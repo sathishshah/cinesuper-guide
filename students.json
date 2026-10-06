@@ -1,5 +1,5 @@
 {
-  "updated": "06 Oct 2026, 03:22 PM IST",
+  "updated": "06 Oct 2026, 04:04 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -319,8 +319,11 @@
     {
       "name": "Aadhil Muhammed S",
       "regno": "JSOFT26376",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 6,
+      "live": "",
+      "repo": "https://github.com/aadhilmuhammeds650-web/cinesuper--your-reg-no-",
+      "remarks": "Repo name must include your JSOFT ID (e.g. cinesuper-jsoft26376) · Missing files: style.css, database/06_personalisation.sql, screenshots/ (with images) · Missing commits: Phase 11, Phase 12 · Live URL is not https://<user>.github.io/<repo>/"
     },
     {
       "name": "Akash M",
