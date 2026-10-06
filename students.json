@@ -1,5 +1,5 @@
 {
-  "updated": "06 Oct 2026, 08:15 AM IST",
+  "updated": "06 Oct 2026, 03:22 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -13,10 +13,10 @@
       "regno": "JSOFT26013",
       "status": "Partially Completed",
       "commits": 0,
-      "live": "https://adheenavinod28-a11y.github.io/cinesuper-jsoft26013/",
-      "repo": "https://github.com/adheenavinod28-a11y/cinesuper-jsoft26013",
+      "live": "",
+      "repo": "",
       "marks": 23,
-      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 8, Phase 11, Phase 12"
+      "remarks": "Working prototype with your own movies and features. No Phase commits (-2); remove the stray ```html text at the top of index.html · Repo URL is not https://github.com/<user>/<repo> · Live URL is not https://<user>.github.io/<repo>/"
     },
     {
       "name": "Abheesh Albert S",
@@ -31,10 +31,10 @@
       "name": "Shaheem Hasrath P S",
       "regno": "JSOFT26022",
       "status": "Incomplete",
-      "commits": 5,
+      "commits": 6,
       "live": "https://shaheemhasrath7-tech.github.io/cinesuper-jsoft26022/",
       "repo": "https://github.com/shaheemhasrath7-tech/cinesuper-jsoft26022",
-      "remarks": "Missing files: database/01_tables.sql, database/03_security.sql, database/04_view.sql, database/05_queries.sql … · Missing commits: Phase 0, Phase 6, Phase 11 · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · Footer still has placeholder text"
+      "remarks": "Missing files: database/01_tables.sql, database/03_security.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 11 · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre"
     },
     {
       "name": "Anet Maria Wilson",
@@ -145,8 +145,11 @@
     {
       "name": "Edin Liyans Daijan",
       "regno": "JSOFT26163",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 3,
+      "live": "https://ediniliyans719-lang.github.io/cinesuper-YOUR-JSOFT-ID/",
+      "repo": "https://github.com/edinliyans719-lang/cinesuper-jsoft26163",
+      "remarks": "Missing files: index.html, style.css, config.js, app.js · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 12 · Live URL does not match the repo · Live site not loading (HTTP 404)"
     },
     {
       "name": "Advaith Sree P . S",
@@ -193,8 +196,11 @@
     {
       "name": "Anumod S Sunil",
       "regno": "JSOFT26216",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 6,
+      "live": "https://anumodssunil2008-design.github.io/cinesuper-jsoft26216/",
+      "repo": "https://github.com/anumodssunil2008-design/cinesuper-jsoft26216",
+      "remarks": "Missing commits: Phase 3, Phase 12"
     },
     {
       "name": "Reuben David",
