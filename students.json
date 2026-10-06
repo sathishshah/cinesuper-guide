@@ -1,5 +1,5 @@
 {
-  "updated": "06 Oct 2026, 04:11 PM IST",
+  "updated": "06 Oct 2026, 04:13 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -21,20 +21,22 @@
     {
       "name": "Abheesh Albert S",
       "regno": "JSOFT26020",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 2,
       "live": "",
       "repo": "https://github.com/abheesh0007-del/cinesuper--Abheesh-Albert.S-JSOFT26020-",
-      "remarks": "Missing files: database/02_seed.sql, database/04_view.sql, database/06_personalisation.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 12 · Live URL is not https://<user>.github.io/<repo>/"
+      "marks": 19,
+      "remarks": "Working prototype. No personalisation; footer has placeholder text; most commits and SQL files missing · Missing files: database/02_seed.sql, database/04_view.sql, database/06_personalisation.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 12 · Live URL is not https://<user>.github.io/<repo>/"
     },
     {
       "name": "Shaheem Hasrath P S",
       "regno": "JSOFT26022",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 6,
       "live": "https://shaheemhasrath7-tech.github.io/cinesuper-jsoft26022/",
       "repo": "https://github.com/shaheemhasrath7-tech/cinesuper-jsoft26022",
-      "remarks": "Missing files: database/01_tables.sql, database/03_security.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 11 · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre"
+      "marks": 20,
+      "remarks": "Working prototype. No personalisation; 01/03 SQL files and screenshots missing · Missing files: database/01_tables.sql, database/03_security.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 11 · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre"
     },
     {
       "name": "Anet Maria Wilson",
@@ -63,7 +65,8 @@
       "status": "Completed",
       "commits": 8,
       "live": "https://muhammed-shahid.github.io/cinesuper-jsoft26064/",
-      "repo": "https://github.com/muhammed-shahid/cinesuper-jsoft26064"
+      "repo": "https://github.com/muhammed-shahid/cinesuper-jsoft26064",
+      "marks": 25
     },
     {
       "name": "Archana P A",
@@ -105,11 +108,12 @@
     {
       "name": "Aswin . A . V",
       "regno": "JSOFT26111",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 4,
       "live": "https://aswin859.github.io/cinesuper-JSOFT26111/",
       "repo": "https://github.com/Aswin859/cinesuper-JSOFT26111",
-      "remarks": "Missing commits: Phase 3, Phase 4, Phase 5, Phase 11 · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · Footer still has placeholder text"
+      "marks": 20,
+      "remarks": "Working prototype. No personalisation; footer has placeholder text; 4 commits missing · Missing commits: Phase 3, Phase 4, Phase 5, Phase 11 · JSOFT ID not shown on live site footer · Only 13 movies; need 18 (13 sample + 5 own) · Only 6 genres; add a new genre · Footer still has placeholder text"
     },
     {
       "name": "Amegh Saneesh",
@@ -163,11 +167,12 @@
     {
       "name": "Pavana Premraj",
       "regno": "JSOFT26185",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 7,
       "live": "https://pavanapremraj.github.io/cinesuper-jsoft26185/",
       "repo": "https://github.com/pavanapremraj/cinesuper-jsoft26185",
-      "remarks": "Missing commits: Phase 0 · Repo link in the form was invalid; used the one from the live link"
+      "marks": 24,
+      "remarks": "Working prototype. Only the Phase 0 commit is missing · Missing commits: Phase 0 · Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Vijay Joy",
@@ -187,20 +192,22 @@
     {
       "name": "Athul Krishna N S",
       "regno": "JSOFT26206",
-      "status": "Under review",
+      "status": "Completed",
       "commits": 8,
       "live": "https://nsathulkrishna73-gif.github.io/cinesuper-jsoft26206/",
       "repo": "https://github.com/nsathulkrishna73-gif/cinesuper-jsoft26206",
+      "marks": 25,
       "remarks": "Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Anumod S Sunil",
       "regno": "JSOFT26216",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 6,
       "live": "https://anumodssunil2008-design.github.io/cinesuper-jsoft26216/",
       "repo": "https://github.com/anumodssunil2008-design/cinesuper-jsoft26216",
-      "remarks": "Missing commits: Phase 3, Phase 12"
+      "marks": 24,
+      "remarks": "Working prototype. Phase 3 and Phase 12 commits are missing · Missing commits: Phase 3, Phase 12"
     },
     {
       "name": "Reuben David",
@@ -263,7 +270,8 @@
       "status": "Completed",
       "commits": 8,
       "live": "https://rifdharafeeque.github.io/cinesuper-jsoft26262/",
-      "repo": "https://github.com/rifdharafeeque/cinesuper-jsoft26262"
+      "repo": "https://github.com/rifdharafeeque/cinesuper-jsoft26262",
+      "marks": 25
     },
     {
       "name": "Darsheel P",
@@ -394,11 +402,12 @@
     {
       "name": "Aron Philip",
       "regno": "JSOFT26451",
-      "status": "Incomplete",
+      "status": "Partially Completed",
       "commits": 6,
       "live": "https://aar0nplp.github.io/cinesuper-jsoft26451/",
       "repo": "https://github.com/aar0nplp/cinesuper-jsoft26451",
-      "remarks": "Missing commits: Phase 6, Phase 8 · Repo link in the form was invalid; used the one from the live link"
+      "marks": 24,
+      "remarks": "Working prototype. Phase 6 and Phase 8 commits are missing · Missing commits: Phase 6, Phase 8 · Repo link in the form was invalid; used the one from the live link"
     }
   ]
 }
