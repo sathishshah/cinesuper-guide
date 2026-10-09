@@ -1,5 +1,5 @@
 {
-  "updated": "06 Oct 2026, 04:13 PM IST",
+  "updated": "10 Oct 2026, 01:10 AM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -56,8 +56,11 @@
     {
       "name": "Esbin P V",
       "regno": "JSOFT26061",
-      "status": "Not submitted",
-      "commits": 0
+      "status": "Incomplete",
+      "commits": 2,
+      "live": "https://esbinvarghese.github.io/cinesuper-jsoft26061/",
+      "repo": "https://github.com/esbinvarghese/cinesuper-jsoft26061",
+      "remarks": "Missing files: database/06_personalisation.sql, screenshots/ (with images) · Missing commits: Phase 0, Phase 3, Phase 4, Phase 5, Phase 6, Phase 12"
     },
     {
       "name": "Muhammed Shahid P",
