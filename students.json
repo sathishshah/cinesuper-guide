@@ -1,5 +1,5 @@
 {
-  "updated": "04 Nov 2026, 12:45 AM IST",
+  "updated": "04 Nov 2026, 05:39 AM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -410,7 +410,7 @@
       "live": "https://aar0nplp.github.io/cinesuper-jsoft26451/",
       "repo": "https://github.com/aar0nplp/cinesuper-jsoft26451",
       "marks": 24,
-      "remarks": "Working prototype. Phase 6 and Phase 8 commits are missing · Missing commits: Phase 6, Phase 8 · Live site not loading (HTTP 503) · Repo link in the form was invalid; used the one from the live link"
+      "remarks": "Working prototype. Phase 6 and Phase 8 commits are missing · Missing commits: Phase 6, Phase 8 · Repo link in the form was invalid; used the one from the live link"
     }
   ]
 }
