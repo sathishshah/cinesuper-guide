@@ -1,5 +1,5 @@
 {
-  "updated": "04 Nov 2026, 05:39 AM IST",
+  "updated": "18 Nov 2026, 03:23 PM IST",
   "maxMarks": 25,
   "students": [
     {
@@ -200,7 +200,7 @@
       "live": "https://nsathulkrishna73-gif.github.io/cinesuper-jsoft26206/",
       "repo": "https://github.com/nsathulkrishna73-gif/cinesuper-jsoft26206",
       "marks": 25,
-      "remarks": "Repo link in the form was invalid; used the one from the live link"
+      "remarks": "Live site not loading (HTTP 503) · Repo link in the form was invalid; used the one from the live link"
     },
     {
       "name": "Anumod S Sunil",
